@@ -312,13 +312,21 @@
     if(t) t.remove();
   }
 
-  function botReply(){
+  async function botReply(userText){
     showTyping();
-    setTimeout(()=>{
+    try{
+      const res = await fetch('https://vitality-chat-api.replit.app/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message: userText })
+      });
+      const data = await res.json();
       removeTyping();
-      // NOTA: respuesta de demostración. Conectar aquí la API de IA real (Claude/OpenAI) para respuestas dinámicas.
-      addBubble('¡Gracias por tu pregunta! En breve nuestro equipo va a conectar aquí la IA para responderte en tiempo real, a cualquier hora del día. 💛', 'bot');
-    }, 1100);
+      addBubble(data.reply || 'Disculpa, ¿puedes repetir tu pregunta?', 'bot');
+    }catch(e){
+      removeTyping();
+      addBubble('Uy, tuve un problema para responder ahora. ¿Puedes intentar de nuevo en unos segundos?', 'bot');
+    }
   }
 
   function handleSend(){
@@ -326,7 +334,7 @@
     if(!val) return;
     addBubble(val, 'user');
     chatInput.value = '';
-    botReply();
+    botReply(val);
   }
 
   sendBtn.addEventListener('click', handleSend);
@@ -335,7 +343,7 @@
   document.querySelectorAll('.quick-chip').forEach(chip=>{
     chip.addEventListener('click', ()=>{
       addBubble(chip.dataset.q, 'user');
-      botReply();
+      botReply(chip.dataset.q);
     });
   });
 </script>

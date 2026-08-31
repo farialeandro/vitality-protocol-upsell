@@ -314,6 +314,9 @@
 
   async function botReply(userText){
     showTyping();
+    const startedAt = Date.now();
+    // Espera minima "humana" antes de revelar a resposta (6 a 7s), mesmo que a IA responda mais rapido
+    const minDelay = 6000 + Math.random() * 1000;
     try{
       const res = await fetch('https://vitality-chat-api.replit.app/api/chat', {
         method: 'POST',
@@ -321,9 +324,13 @@
         body: JSON.stringify({ message: userText })
       });
       const data = await res.json();
+      const elapsed = Date.now() - startedAt;
+      if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
       removeTyping();
       addBubble(data.reply || 'Disculpa, ¿puedes repetir tu pregunta?', 'bot');
     }catch(e){
+      const elapsed = Date.now() - startedAt;
+      if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
       removeTyping();
       addBubble('Uy, tuve un problema para responder ahora. ¿Puedes intentar de nuevo en unos segundos?', 'bot');
     }

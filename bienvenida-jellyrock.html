@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Welcome — Jelly Rock</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --red: #e21f2c;
+    --red-light: #ff5a63;
+    --red-dark: #8c0f18;
+    --bg-1: #060404;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(226,31,44,0.25);
+    --text-main: #f5f1f1;
+    --text-dim: #b8a9a9;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(ellipse 120% 80% at 50% 0%, #2a0a0c 0%, #150606 35%, #0a0404 70%, #030101 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 32px 18px 60px;
+  }
+  .container{ max-width: 560px; margin: 0 auto; }
+
+  /* ---------- Welcome ---------- */
+  .welcome-card{
+    text-align: center;
+    padding: 20px 8px 8px;
+  }
+  .welcome-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #7a0d14, #a3141f);
+    border: 1px solid rgba(226,31,44,0.6);
+    color: #ffd7da;
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .welcome-card h1{
+    font-size: clamp(24px, 6vw, 32px);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    background: linear-gradient(180deg, #ffffff, #e8c4c6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .welcome-card p{
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Warm box ---------- */
+  .warm-box{
+    margin: 28px 0;
+    padding: 22px 20px;
+    border-radius: 18px;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .warm-box .emoji{ font-size: 26px; line-height: 1; }
+  .warm-box p{ font-size: 14.5px; color: var(--text-main); line-height: 1.6; }
+  .warm-box strong{ color: #ff8b91; }
+
+  /* ---------- Chat ---------- */
+  .chat-shell{
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(226,31,44,0.35);
+    box-shadow: 0 20px 50px -14px rgba(0,0,0,0.75), 0 0 40px rgba(226,31,44,0.10);
+    background: #100707;
+  }
+  .chat-header{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, rgba(226,31,44,0.18), rgba(140,15,24,0.10));
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .chat-avatar{
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    flex: 0 0 56px;
+    overflow: hidden;
+    border: 1px solid rgba(226,31,44,0.5);
+  }
+  .chat-avatar img{
+    width: 100%; height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .chat-header-text .name{ font-size: 14.5px; font-weight: 700; color: var(--text-main); }
+  .chat-header-text .status{ font-size: 12px; color: var(--red-light); display: flex; align-items: center; gap: 5px; }
+  .chat-header-text .status::before{
+    content:""; width: 7px; height: 7px; border-radius: 50%; background: var(--red-light);
+    box-shadow: 0 0 6px var(--red-light);
+  }
+
+  .chat-body{
+    height: 320px;
+    overflow-y: auto;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .bubble{
+    max-width: 82%;
+    padding: 11px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .bubble.bot{
+    align-self: flex-start;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-bottom-left-radius: 4px;
+    color: var(--text-main);
+  }
+  .bubble.user{
+    align-self: flex-end;
+    background: linear-gradient(135deg, #e21f2c, #8c0f18);
+    color: #fff;
+    font-weight: 600;
+    border-bottom-right-radius: 4px;
+  }
+
+  .quick-replies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 18px 14px;
+  }
+  .quick-chip{
+    font-size: 12.5px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(226,31,44,0.10);
+    border: 1px solid rgba(226,31,44,0.35);
+    color: #ffb3b7;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .quick-chip:hover{ background: rgba(226,31,44,0.22); }
+
+  .chat-input-row{
+    display: flex;
+    gap: 10px;
+    padding: 14px 16px;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.02);
+  }
+  .chat-input-row input{
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--text-main);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+  }
+  .chat-input-row input::placeholder{ color: rgba(184,169,169,0.5); }
+  .chat-input-row button{
+    background: linear-gradient(135deg, #e21f2c, #8c0f18);
+    border: none;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 0 8px 20px -6px rgba(140,15,24,0.7);
+  }
+
+  .typing{
+    display: flex;
+    gap: 4px;
+    align-self: flex-start;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+  }
+  .typing span{
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--text-dim);
+    animation: typingBounce 1.2s infinite ease-in-out;
+  }
+  .typing span:nth-child(2){ animation-delay: 0.15s; }
+  .typing span:nth-child(3){ animation-delay: 0.3s; }
+  @keyframes typingBounce{
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .foot-note{
+    text-align: center;
+    color: rgba(184,169,169,0.5);
+    font-size: 12px;
+    margin-top: 22px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="welcome-card">
+    <div class="welcome-badge">✦ Jelly Rock Member</div>
+    <h1 id="greetingTitle">Welcome! You're all set</h1>
+    <p>Your order is confirmed. Our support team is here for any question about your product, your delivery, or your bonus app access.</p>
+  </section>
+
+  <div class="warm-box">
+    <div class="emoji">🔥</div>
+    <p><strong>Any question, we're here for you.</strong> Ask about shipping, how to take it, your bonus app access, or anything else — any time, we reply fast.</p>
+  </div>
+
+  <div class="chat-shell">
+    <div class="chat-header">
+      <div class="chat-avatar"><img src="https://images.unsplash.com/photo-1758691737605-69a0e78bd193?w=160&h=160&fit=crop&crop=faces&q=80" alt="Camila"></div>
+      <div class="chat-header-text">
+        <div class="name">Camila</div>
+        <div class="status">Online now</div>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="bubble bot" id="firstBotMsg">Hi, I'm Camila from the Jelly Rock support team. I'm here to help with anything you need, any time. What can I help you with today?</div>
+    </div>
+
+    <div class="quick-replies">
+      <div class="quick-chip" data-q="When will my order arrive?">When will it arrive?</div>
+      <div class="quick-chip" data-q="How should I take Jelly Rock?">How do I take it?</div>
+      <div class="quick-chip" data-q="How do I access my free bonus app?">Bonus app access</div>
+    </div>
+
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type your question...">
+      <button type="button" id="sendBtn" aria-label="Send">➤</button>
+    </div>
+  </div>
+
+  <p class="foot-note">🔒 Private and secure conversation · Replies in seconds, any time of day</p>
+
+</div>
+
+<script>
+  // ---------- Personalized greeting via ?name= in the URL ----------
+  (function personalize(){
+    const params = new URLSearchParams(location.search);
+    const name = params.get('name') || params.get('nome') || params.get('nombre');
+    if(name){
+      const clean = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+      document.getElementById('greetingTitle').textContent = 'Welcome, ' + clean + '! You\'re all set';
+      document.getElementById('firstBotMsg').textContent = 'Hi ' + clean + ', I\'m Camila from the Jelly Rock support team. I\'m here to help with anything you need, any time. What can I help you with today?';
+    }
+  })();
+
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  function addBubble(text, who){
+    const b = document.createElement('div');
+    b.className = 'bubble ' + who;
+    b.textContent = text;
+    chatBody.appendChild(b);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function showTyping(){
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.id = 'typingIndicator';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.appendChild(t);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function removeTyping(){
+    const t = document.getElementById('typingIndicator');
+    if(t) t.remove();
+  }
+
+  async function botReply(userText){
+    showTyping();
+    const startedAt = Date.now();
+    // Minimum "human" wait before revealing the reply (6 to 7s), even if the AI answers faster
+    const minDelay = 6000 + Math.random() * 1000;
+    try{
+      const res = await fetch('https://vitality-chat-api.replit.app/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message: userText, bot: 'camila' })
+      });
+      const data = await res.json();
+      const elapsed = Date.now() - startedAt;
+      if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
+      removeTyping();
+      addBubble(data.reply || 'Sorry, could you repeat your question?', 'bot');
+    }catch(e){
+      const elapsed = Date.now() - startedAt;
+      if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
+      removeTyping();
+      addBubble('Sorry, I had trouble replying just now. Can you try again in a few seconds?', 'bot');
+    }
+  }
+
+  function handleSend(){
+    const val = chatInput.value.trim();
+    if(!val) return;
+    addBubble(val, 'user');
+    chatInput.value = '';
+    botReply(val);
+  }
+
+  sendBtn.addEventListener('click', handleSend);
+  chatInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') handleSend(); });
+
+  document.querySelectorAll('.quick-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      addBubble(chip.dataset.q, 'user');
+      botReply(chip.dataset.q);
+    });
+  });
+</script>
+
+</body>
+</html>

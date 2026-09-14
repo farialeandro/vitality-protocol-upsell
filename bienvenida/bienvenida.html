@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Bienvenida — Vitality Protocol</title>
+<title id="pageTitle">Bienvenida — Vitality Protocol</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
   :root{
@@ -234,14 +234,14 @@
 <div class="container">
 
   <section class="welcome-card">
-    <div class="welcome-badge">✦ Miembro Vitality Protocol</div>
+    <div class="welcome-badge" id="welcomeBadge">✦ Miembro Vitality Protocol</div>
     <h1 id="greetingTitle">¡Hola! Sea muy bienvenida</h1>
-    <p>Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.</p>
+    <p id="welcomeSubtitle">Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.</p>
   </section>
 
   <div class="warm-box">
     <div class="emoji">💛</div>
-    <p><strong>Cualquier duda, aquí estamos para ti.</strong> Puedes preguntar sobre recetas, horarios, ingredientes o lo que necesites — a cualquier hora, respondemos rápido.</p>
+    <p id="warmBoxText"><strong>Cualquier duda, aquí estamos para ti.</strong> Puedes preguntar sobre recetas, horarios, ingredientes o lo que necesites — a cualquier hora, respondemos rápido.</p>
   </div>
 
   <div class="chat-shell">
@@ -249,7 +249,7 @@
       <div class="chat-avatar"><img src="https://images.unsplash.com/photo-1702669010463-3f2088abc0e9?w=160&h=160&fit=crop&crop=faces&q=80" alt="Débora"></div>
       <div class="chat-header-text">
         <div class="name">Débora</div>
-        <div class="status">En línea ahora</div>
+        <div class="status" id="statusText">En línea ahora</div>
       </div>
     </div>
 
@@ -257,7 +257,7 @@
       <div class="bubble bot" id="firstBotMsg">Hola, soy Débora, del equipo del Vitality Protocol. Estoy aquí para ayudarte en lo que necesites, a cualquier hora. ¿En qué te puedo ayudar hoy?</div>
     </div>
 
-    <div class="quick-replies">
+    <div class="quick-replies" id="quickReplies">
       <div class="quick-chip" data-q="¿Qué receta puedo preparar hoy?">¿Qué receta preparo hoy?</div>
       <div class="quick-chip" data-q="¿A qué hora es mejor hacer la actividad física?">¿A qué hora hago la actividad?</div>
       <div class="quick-chip" data-q="Tengo una duda sobre un ingrediente">Duda sobre un ingrediente</div>
@@ -269,23 +269,116 @@
     </div>
   </div>
 
-  <p class="foot-note">🔒 Conversación privada y segura · Respuestas en segundos, a cualquier hora del día</p>
+  <p class="foot-note" id="footNote">🔒 Conversación privada y segura · Respuestas en segundos, a cualquier hora del día</p>
 
 </div>
 
 <script>
-  // ---------- Saudacao personalizada via ?nome= na URL ----------
+  // ---------- Traducciones / Translations / Traductions ----------
+  const I18N = {
+    es: {
+      pageTitle: 'Bienvenida — Vitality Protocol',
+      badge: '✦ Miembro Vitality Protocol',
+      greeting: (n) => n ? ('¡Hola, ' + n + '! Sea muy bienvenida') : '¡Hola! Sea muy bienvenida',
+      subtitle: 'Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.',
+      warmBox: '<strong>Cualquier duda, aquí estamos para ti.</strong> Puedes preguntar sobre recetas, horarios, ingredientes o lo que necesites — a cualquier hora, respondemos rápido.',
+      status: 'En línea ahora',
+      firstBotMsg: (n) => (n ? ('Hola ' + n + ', ') : 'Hola, ') + 'soy Débora, del equipo del Vitality Protocol. Estoy aquí para ayudarte en lo que necesites, a cualquier hora. ¿En qué te puedo ayudar hoy?',
+      chips: [
+        { q: '¿Qué receta puedo preparar hoy?', label: '¿Qué receta preparo hoy?' },
+        { q: '¿A qué hora es mejor hacer la actividad física?', label: '¿A qué hora hago la actividad?' },
+        { q: 'Tengo una duda sobre un ingrediente', label: 'Duda sobre un ingrediente' }
+      ],
+      placeholder: 'Escribe tu pregunta...',
+      sendAria: 'Enviar',
+      footNote: '🔒 Conversación privada y segura · Respuestas en segundos, a cualquier hora del día',
+      fallbackNoRepeat: 'Disculpa, ¿puedes repetir tu pregunta?',
+      fallbackError: 'Uy, tuve un problema para responder ahora. ¿Puedes intentar de nuevo en unos segundos?'
+    },
+    en: {
+      pageTitle: 'Welcome — Vitality Protocol',
+      badge: '✦ Vitality Protocol Member',
+      greeting: (n) => n ? ('Hi, ' + n + '! Welcome aboard') : 'Hi! Welcome aboard',
+      subtitle: 'Your access is already active. From now on you have personalized support at every step — you are not alone on this journey.',
+      warmBox: '<strong>Any question, we\'re here for you.</strong> Ask about recipes, schedules, ingredients, or anything you need — any time, we reply fast.',
+      status: 'Online now',
+      firstBotMsg: (n) => (n ? ('Hi ' + n + ', ') : 'Hi, ') + 'I\'m Débora, from the Vitality Protocol team. I\'m here to help with anything you need, any time. What can I help you with today?',
+      chips: [
+        { q: 'What recipe can I make today?', label: 'What recipe today?' },
+        { q: 'What time is best to do the physical activity?', label: 'Best time to exercise?' },
+        { q: 'I have a question about an ingredient', label: 'Question about an ingredient' }
+      ],
+      placeholder: 'Type your question...',
+      sendAria: 'Send',
+      footNote: '🔒 Private and secure conversation · Replies in seconds, any time of day',
+      fallbackNoRepeat: 'Sorry, could you repeat your question?',
+      fallbackError: 'Sorry, I had trouble replying just now. Can you try again in a few seconds?'
+    },
+    fr: {
+      pageTitle: 'Bienvenue — Vitality Protocol',
+      badge: '✦ Membre Vitality Protocol',
+      greeting: (n) => n ? ('Bonjour, ' + n + ' ! Bienvenue') : 'Bonjour ! Bienvenue',
+      subtitle: 'Votre accès est déjà actif. À partir de maintenant, vous bénéficiez d\'un accompagnement personnalisé à chaque étape — vous n\'êtes pas seule sur ce chemin.',
+      warmBox: '<strong>La moindre question, nous sommes là pour vous.</strong> Posez vos questions sur les recettes, les horaires, les ingrédients ou tout ce dont vous avez besoin — à toute heure, nous répondons rapidement.',
+      status: 'En ligne',
+      firstBotMsg: (n) => (n ? ('Bonjour ' + n + ', ') : 'Bonjour, ') + 'je suis Débora, de l\'équipe Vitality Protocol. Je suis là pour vous aider, à toute heure. Que puis-je faire pour vous aujourd\'hui ?',
+      chips: [
+        { q: 'Quelle recette puis-je préparer aujourd\'hui ?', label: 'Quelle recette aujourd\'hui ?' },
+        { q: 'À quelle heure vaut-il mieux faire l\'activité physique ?', label: 'Quand faire l\'activité ?' },
+        { q: 'J\'ai une question sur un ingrédient', label: 'Question sur un ingrédient' }
+      ],
+      placeholder: 'Écrivez votre question...',
+      sendAria: 'Envoyer',
+      footNote: '🔒 Conversation privée et sécurisée · Réponses en quelques secondes, à toute heure',
+      fallbackNoRepeat: 'Désolée, pouvez-vous répéter votre question ?',
+      fallbackError: 'Désolée, j\'ai eu un souci pour répondre. Pouvez-vous réessayer dans quelques secondes ?'
+    }
+  };
+
+  function detectLang(){
+    const raw = (navigator.language || (navigator.languages && navigator.languages[0]) || 'es').toLowerCase();
+    if(raw.startsWith('fr')) return 'fr';
+    if(raw.startsWith('en')) return 'en';
+    return 'es';
+  }
+
+  const LANG = detectLang();
+  const T = I18N[LANG];
+
+  // ---------- Aplica idioma detectado + saudacao personalizada via ?nombre=/?name= na URL ----------
   (function personalize(){
+    document.documentElement.lang = LANG;
+    document.getElementById('pageTitle').textContent = T.pageTitle;
+    document.getElementById('welcomeBadge').textContent = T.badge;
+    document.getElementById('welcomeSubtitle').textContent = T.subtitle;
+    document.getElementById('warmBoxText').innerHTML = T.warmBox;
+    document.getElementById('statusText').textContent = T.status;
+    document.getElementById('chatInput').placeholder = T.placeholder;
+    document.getElementById('sendBtn').setAttribute('aria-label', T.sendAria);
+    document.getElementById('footNote').textContent = T.footNote;
+
+    const quickRepliesEl = document.getElementById('quickReplies');
+    quickRepliesEl.innerHTML = '';
+    T.chips.forEach(chip => {
+      const el = document.createElement('div');
+      el.className = 'quick-chip';
+      el.dataset.q = chip.q;
+      el.textContent = chip.label;
+      el.addEventListener('click', ()=>{
+        addBubble(chip.q, 'user');
+        botReply(chip.q);
+      });
+      quickRepliesEl.appendChild(el);
+    });
+
     const params = new URLSearchParams(location.search);
     const nome = params.get('nombre') || params.get('nome') || params.get('name');
-    if(nome){
-      const clean = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
-      document.getElementById('greetingTitle').textContent = '¡Hola, ' + clean + '! Sea muy bienvenida';
-      document.getElementById('firstBotMsg').textContent = 'Hola ' + clean + ', soy Débora, del equipo del Vitality Protocol. Estoy aquí para ayudarte en lo que necesites, a cualquier hora. ¿En qué te puedo ayudar hoy?';
-    }
+    const clean = nome ? (nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase()) : null;
+    document.getElementById('greetingTitle').textContent = T.greeting(clean);
+    document.getElementById('firstBotMsg').textContent = T.firstBotMsg(clean);
   })();
 
-  // ---------- Chat de demonstracao (respostas fixas ate a IA real ser conectada) ----------
+  // ---------- Chat conectado a API da Debora (multi-idioma) ----------
   const chatBody = document.getElementById('chatBody');
   const chatInput = document.getElementById('chatInput');
   const sendBtn = document.getElementById('sendBtn');
@@ -321,18 +414,18 @@
       const res = await fetch('https://vitality-chat-api.replit.app/api/chat', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ message: userText })
+        body: JSON.stringify({ message: userText, lang: LANG })
       });
       const data = await res.json();
       const elapsed = Date.now() - startedAt;
       if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
       removeTyping();
-      addBubble(data.reply || 'Disculpa, ¿puedes repetir tu pregunta?', 'bot');
+      addBubble(data.reply || T.fallbackNoRepeat, 'bot');
     }catch(e){
       const elapsed = Date.now() - startedAt;
       if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
       removeTyping();
-      addBubble('Uy, tuve un problema para responder ahora. ¿Puedes intentar de nuevo en unos segundos?', 'bot');
+      addBubble(T.fallbackError, 'bot');
     }
   }
 
@@ -346,13 +439,6 @@
 
   sendBtn.addEventListener('click', handleSend);
   chatInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') handleSend(); });
-
-  document.querySelectorAll('.quick-chip').forEach(chip=>{
-    chip.addEventListener('click', ()=>{
-      addBubble(chip.dataset.q, 'user');
-      botReply(chip.dataset.q);
-    });
-  });
 </script>
 
 </body>

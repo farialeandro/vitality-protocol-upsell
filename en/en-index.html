@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Vitality Protocol — Exclusive Offer</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+--gold: #e8c27a;
+--gold-light: #f5deb0;
+--green: #16d97a;
+--green-dark: #0fa85f;
+--red: #ff2b3d;
+--bg-1: #05030d;
+--bg-2: #120a2e;
+--bg-3: #1c1035;
+--glass: rgba(255,255,255,0.05);
+--glass-border: rgba(255,255,255,0.10);
+--text-main: #f4f2ff;
+--text-dim: #b6afd6;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background: radial-gradient(ellipse 120% 80% at 50% 0%, #241448 0%, #130a2e 35%, #070414 70%, #020104 100%);
+color: var(--text-main);
+overflow-x: hidden;
+position: relative;
+min-height: 100vh;
+}
+
+/* ---------- Particules / Glow de fond ---------- */
+.bg-decor{
+position: fixed;
+inset: 0;
+z-index: 0;
+pointer-events: none;
+overflow: hidden;
+}
+.glow-orb{
+position: absolute;
+border-radius: 50%;
+filter: blur(90px);
+opacity: 0.55;
+animation: floatOrb 14s ease-in-out infinite;
+}
+.glow-orb.one{
+width: 420px; height: 420px;
+background: radial-gradient(circle, rgba(120,80,255,0.55), transparent 70%);
+top: -120px; left: -100px;
+}
+.glow-orb.two{
+width: 380px; height: 380px;
+background: radial-gradient(circle, rgba(232,194,122,0.30), transparent 70%);
+top: 30%; right: -140px;
+animation-delay: 3s;
+}
+.glow-orb.three{
+width: 460px; height: 460px;
+background: radial-gradient(circle, rgba(60,40,180,0.55), transparent 70%);
+bottom: -160px; left: 10%;
+animation-delay: 6s;
+}
+@keyframes floatOrb{
+0%, 100% { transform: translate(0,0) scale(1); }
+50% { transform: translate(30px,-40px) scale(1.08); }
+}
+
+.particles{
+position: absolute;
+inset: 0;
+}
+.particle{
+position: absolute;
+width: 3px; height: 3px;
+background: rgba(255,255,255,0.5);
+border-radius: 50%;
+animation: drift linear infinite;
+}
+@keyframes drift{
+0% { transform: translateY(0) translateX(0); opacity: 0; }
+10% { opacity: 0.8; }
+90% { opacity: 0.5; }
+100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+main, header{
+position: relative;
+z-index: 1;
+}
+
+/* ---------- Barre d'alerte ---------- */
+.alert-bar{
+width: 100%;
+background: linear-gradient(90deg, #b8001f, #ff2b3d, #b8001f);
+background-size: 200% 100%;
+animation: alertShift 3s linear infinite;
+color: #fff;
+text-align: center;
+padding: 12px 16px;
+font-size: 13.5px;
+font-weight: 600;
+letter-spacing: 0.2px;
+line-height: 1.5;
+box-shadow: 0 2px 20px rgba(255,43,61,0.5);
+position: sticky;
+top: 0;
+z-index: 50;
+}
+@keyframes alertShift{
+0% { background-position: 0% 50%; }
+100% { background-position: 200% 50%; }
+}
+.alert-bar strong{ font-weight: 800; }
+
+/* ---------- Container ---------- */
+.container{
+max-width: 720px;
+margin: 0 auto;
+padding: 0 24px;
+}
+
+/* ---------- Hero ---------- */
+.hero{
+text-align: center;
+padding: 56px 24px 20px;
+}
+
+.badge-gold{
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: linear-gradient(135deg, #6b5320, #8a6c2e);
+border: 1px solid rgba(232,194,122,0.6);
+color: var(--gold-light);
+padding: 7px 18px;
+border-radius: 999px;
+font-size: 11.5px;
+font-weight: 700;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+margin-bottom: 28px;
+box-shadow: 0 0 24px rgba(232,194,122,0.25);
+}
+
+.hero h1{
+font-size: clamp(28px, 6vw, 42px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.5px;
+margin-bottom: 14px;
+background: linear-gradient(180deg, #ffffff, #c9c2ea);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.hero .headline{
+font-size: clamp(18px, 3.2vw, 22px);
+font-weight: 600;
+color: var(--text-main);
+max-width: 560px;
+margin: 0 auto 12px;
+line-height: 1.5;
+}
+
+.hero .subtext{
+font-size: 15px;
+color: var(--text-dim);
+max-width: 460px;
+margin: 0 auto;
+line-height: 1.6;
+}
+
+/* ---------- Mockup ---------- */
+.mockup-wrap{
+display: flex;
+justify-content: center;
+padding: 48px 0 20px;
+perspective: 1000px;
+}
+.mockup{
+position: relative;
+width: 260px;
+animation: floatMockup 5s ease-in-out infinite;
+}
+.mockup img{
+width: 100%;
+display: block;
+border-radius: 34px;
+box-shadow:
+0 30px 60px -15px rgba(0,0,0,0.7),
+0 0 0 8px rgba(255,255,255,0.04),
+0 0 80px rgba(130,90,255,0.35);
+}
+.mockup::after{
+content:"";
+position: absolute;
+bottom: -30px;
+left: 50%;
+transform: translateX(-50%);
+width: 70%;
+height: 30px;
+background: radial-gradient(ellipse, rgba(130,90,255,0.45), transparent 70%);
+filter: blur(10px);
+border-radius: 50%;
+}
+@keyframes floatMockup{
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-16px); }
+}
+
+.app-title{
+text-align: center;
+padding: 8px 0 10px;
+}
+.app-title h2{
+font-size: clamp(24px, 5vw, 32px);
+font-weight: 800;
+letter-spacing: 1px;
+background: linear-gradient(135deg, #f5deb0, #e8c27a 40%, #b98d3e);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.app-title p{
+color: var(--text-dim);
+font-size: 15px;
+font-weight: 500;
+margin-top: 6px;
+}
+
+/* ---------- Fade in on scroll ---------- */
+.reveal{
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible{
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ---------- Cards ---------- */
+.cards-section{
+padding: 50px 0 20px;
+}
+.row-title{
+font-size: 15px;
+font-weight: 700;
+color: var(--text-main);
+letter-spacing: 0.2px;
+margin: 0 0 14px 24px;
+}
+.cards-carousel-wrap{
+overflow-x: auto;
+overflow-y: visible;
+scroll-snap-type: x proximity;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+padding: 6px 0 18px;
+}
+.cards-carousel-wrap::-webkit-scrollbar{ display: none; }
+.cards-carousel{
+display: flex;
+gap: 14px;
+padding: 4px 24px 10px;
+width: max-content;
+}
+.card{
+position: relative;
+flex: 0 0 148px;
+height: 210px;
+border-radius: 16px;
+padding: 16px 14px;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+text-align: left;
+overflow: hidden;
+scroll-snap-align: start;
+border: 1px solid var(--glass-border);
+box-shadow: 0 14px 30px -10px rgba(0,0,0,0.55);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card::before{
+content:"";
+position: absolute;
+inset: 0;
+opacity: 0.9;
+z-index: 0;
+}
+.card.c1::before{ background: linear-gradient(150deg, #3a2a7a, #1c1035); }
+.card.c2::before{ background: linear-gradient(150deg, #7a3a5a, #2a1030); }
+.card.c3::before{ background: linear-gradient(150deg, #2a6a5a, #0f2a2a); }
+.card.c4::before{ background: linear-gradient(150deg, #8a6c2e, #2a2010); }
+.card.c5::before{ background: linear-gradient(150deg, #3a5a8a, #10182a); }
+.card.c6::before{ background: linear-gradient(150deg, #7a2a3a, #2a1015); }
+.card:hover, .card:active{
+transform: translateY(-8px) scale(1.05);
+z-index: 2;
+box-shadow: 0 26px 50px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(232,194,122,0.4);
+}
+.card .icon{
+position: relative;
+z-index: 1;
+font-size: 34px;
+margin-bottom: 10px;
+display: block;
+filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+}
+.card h3{
+position: relative;
+z-index: 1;
+font-size: 13.5px;
+font-weight: 700;
+color: var(--text-main);
+line-height: 1.35;
+}
+@media (min-width: 640px){
+.card{ flex-basis: 168px; height: 230px; }
+}
+
+/* ---------- Bloc explicatif ---------- */
+.why-section{
+padding: 56px 0 20px;
+text-align: center;
+}
+.why-section h2{
+font-size: clamp(22px, 4.5vw, 28px);
+font-weight: 800;
+margin-bottom: 18px;
+color: var(--text-main);
+}
+.why-section p{
+color: var(--text-dim);
+font-size: 15.5px;
+line-height: 1.75;
+max-width: 540px;
+margin: 0 auto;
+}
+
+/* ---------- Bloc premium doré ---------- */
+.premium-box{
+margin: 48px 0;
+padding: 32px 26px;
+border-radius: 22px;
+text-align: center;
+background: linear-gradient(135deg, rgba(232,194,122,0.14), rgba(139,105,40,0.08));
+border: 1px solid rgba(232,194,122,0.45);
+box-shadow: 0 0 50px rgba(232,194,122,0.12), inset 0 0 40px rgba(232,194,122,0.04);
+position: relative;
+overflow: hidden;
+}
+.premium-box::before{
+content:"";
+position: absolute;
+top: -50%; left: -50%;
+width: 200%; height: 200%;
+background: conic-gradient(from 0deg, transparent, rgba(232,194,122,0.12), transparent 30%);
+animation: rotateShine 8s linear infinite;
+}
+.premium-box-content{
+position: relative;
+z-index: 1;
+}
+@keyframes rotateShine{
+to { transform: rotate(360deg); }
+}
+.premium-box .lock-icon{
+font-size: 26px;
+margin-bottom: 10px;
+display: block;
+}
+.premium-box p{
+color: var(--gold-light);
+font-size: 16px;
+font-weight: 600;
+line-height: 1.7;
+max-width: 460px;
+margin: 0 auto;
+}
+
+/* ---------- CTA ---------- */
+.cta-section{
+padding: 20px 0 60px;
+text-align: center;
+}
+.cta-btn{
+position: relative;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+width: 100%;
+max-width: 480px;
+padding: 22px 20px;
+border: none;
+border-radius: 18px;
+background: linear-gradient(135deg, #1fe08a, #0fa85f);
+color: #04140b;
+font-size: 16.5px;
+font-weight: 800;
+letter-spacing: 0.2px;
+text-transform: uppercase;
+cursor: pointer;
+overflow: hidden;
+box-shadow: 0 14px 40px -8px rgba(15,168,95,0.65);
+animation: pulseBtn 2.2s ease-in-out infinite;
+transition: transform 0.2s ease;
+}
+.cta-btn:active{ transform: scale(0.97); }
+.cta-btn::after{
+content:"";
+position: absolute;
+top: 0; left: -75%;
+width: 50%; height: 100%;
+background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+transform: skewX(-20deg);
+animation: shineSweep 2.6s ease-in-out infinite;
+}
+@keyframes shineSweep{
+0% { left: -75%; }
+50% { left: 130%; }
+100% { left: 130%; }
+}
+@keyframes pulseBtn{
+0%, 100% { box-shadow: 0 14px 40px -8px rgba(15,168,95,0.65), 0 0 0 0 rgba(31,224,138,0.5); }
+50% { box-shadow: 0 14px 40px -8px rgba(15,168,95,0.65), 0 0 0 14px rgba(31,224,138,0); }
+}
+
+.cta-microtext{
+margin-top: 16px;
+font-size: 12.5px;
+color: var(--text-dim);
+}
+
+#declineBtn{
+display: inline-block;
+margin: 18px auto 0;
+background: transparent;
+border: none;
+color: rgba(182,175,214,0.4);
+font-size: 11px;
+text-decoration: underline;
+cursor: pointer;
+padding: 6px 10px;
+transition: color 0.2s ease;
+}
+#declineBtn:hover{ color: rgba(182,175,214,0.7); }
+
+/* ---------- Footer ---------- */
+footer{
+text-align: center;
+padding: 30px 24px 50px;
+color: rgba(182,175,214,0.6);
+font-size: 12px;
+line-height: 1.8;
+}
+footer .lock-row{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
+margin-bottom: 4px;
+}
+
+@media (max-width: 480px){
+.mockup{ width: 220px; }
+.hero{ padding: 44px 20px 10px; }
+}
+
+/* ---------- Depoimentos ---------- */
+.testi-section{
+padding: 10px 0 8px;
+}
+.testi-list{
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+.testi-card{
+display: flex;
+gap: 14px;
+align-items: flex-start;
+background: rgba(255,255,255,0.045);
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+border: 1px solid var(--glass-border);
+border-radius: 18px;
+padding: 18px 18px;
+}
+.testi-avatar{
+flex: 0 0 52px;
+width: 52px;
+height: 52px;
+border-radius: 50%;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(232,194,122,0.4);
+overflow: hidden;
+}
+.testi-avatar img{
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+}
+.testi-body{ flex: 1; }
+.testi-stars{
+color: var(--gold);
+font-size: 13px;
+letter-spacing: 1px;
+margin-bottom: 4px;
+}
+.testi-quote{
+color: var(--text-main);
+font-size: 14px;
+line-height: 1.55;
+margin-bottom: 6px;
+}
+.testi-name{
+color: var(--text-dim);
+font-size: 12.5px;
+font-weight: 600;
+}
+</style>
+<script src="https://pay.simpleday.shop/scripts/upsell-processor.js"></script></head>
+<body>
+
+<div class="bg-decor">
+<div class="glow-orb one"></div>
+<div class="glow-orb two"></div>
+<div class="glow-orb three"></div>
+<div class="particles" id="particles"></div>
+</div>
+
+<header class="alert-bar">
+⚠️ <strong>ATTENTION</strong> — Do not leave this page or use the Back button to avoid any interruption to your order.
+</header>
+
+<main>
+<section class="hero container">
+<div class="badge-gold reveal">✦ Exclusive Offer</div>
+<h1 class="reveal">🎉 Congratulations!</h1>
+<p class="headline reveal">You've just unlocked the last exclusive access.</p>
+<p class="subtext reveal">This is a unique, reserved opportunity. Congratulations on getting this exclusive access!</p>
+</section>
+
+<div class="mockup-wrap reveal">
+<div class="mockup">
+<img src="vitality-en-mockup.jpg" alt="Vitality Protocol" class="hero-app">
+</div>
+</div>
+
+<div class="app-title reveal">
+<h2>VITALITY PROTOCOL</h2>
+<p>Live one-on-one guidance</p>
+</div>
+
+<section class="cards-section reveal">
+<p class="row-title">Your Protocol Includes</p>
+<div class="cards-carousel-wrap">
+<div class="cards-carousel">
+<div class="card c1">
+<span class="icon">🧠</span>
+<h3>Personalized program</h3>
+</div>
+<div class="card c2">
+<span class="icon">📅</span>
+<h3>One-on-one sessions</h3>
+</div>
+<div class="card c3">
+<span class="icon">💬</span>
+<h3>Priority support</h3>
+</div>
+<div class="card c4">
+<span class="icon">📈</span>
+<h3>Progress tracking</h3>
+</div>
+<div class="card c5">
+<span class="icon">🎯</span>
+<h3>Tailored advice</h3>
+</div>
+<div class="card c6">
+<span class="icon">❤️</span>
+<h3>Human support</h3>
+</div>
+</div>
+</div>
+</section>
+
+<section class="why-section container reveal">
+<h2>You've just received the Vitality Protocol.</h2>
+<p>With the Vitality Protocol, you'll never be alone on your journey. You'll have individual, personalized guidance, with a live chat to answer your questions, guide you through every step, and help you apply the program with total confidence.</p>
+<p style="margin-top:16px;">You'll also get access to an exclusive private group reserved for members, where exclusive tips, updates, and new recommendations will be posted several times a week to support you throughout your progress.</p>
+<p style="margin-top:16px;">Our goal is to offer you quality support, keep you motivated, and give you the help you need for steady progress, with attentive, personalized guidance whenever you need it. Congratulations on your exclusive access.</p>
+</section>
+
+<div class="container">
+<div class="premium-box reveal">
+<div class="premium-box-content">
+<span class="lock-icon">🔐</span>
+<p>Access reserved for new members.<br>This opportunity is available only on this page.</p>
+</div>
+</div>
+</div>
+
+<section class="testi-section container reveal">
+<p class="row-title" style="margin-left:0;">What Our Members Are Saying</p>
+<div class="testi-list">
+<div class="testi-card">
+<div class="testi-avatar"><img src="https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?w=160&h=160&fit=crop&crop=faces&q=80" alt="Marta G."></div>
+<div class="testi-body">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-quote">"I wrote in at 11pm with a question about a recipe, and within minutes I already had an answer. I never felt alone in the process."</p>
+<p class="testi-name">Marta G.</p>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-avatar"><img src="https://images.unsplash.com/photo-1616286608358-0e1b143f7d2f?w=160&h=160&fit=crop&crop=faces&q=80" alt="Daniela R."></div>
+<div class="testi-body">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-quote">"I thought it would take days to get my questions answered, but the support was immediate. It really feels like genuine, human care."</p>
+<p class="testi-name">Daniela R.</p>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-avatar"><img src="https://images.unsplash.com/photo-1758686254593-7c4cd55b2621?w=160&h=160&fit=crop&crop=faces&q=80" alt="Patricia M."></div>
+<div class="testi-body">
+<div class="testi-stars">★★★★★</div>
+<p class="testi-quote">"I asked something really simple, almost embarrassed to ask, and they answered right away, without judging. That gave me a lot of confidence to keep going."</p>
+<p class="testi-name">Patricia M.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta-section container reveal">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px;"><button type="button" onclick="acceptUpsell('https://pay.simpleday.shop/u/cfd1b8ac3808d20d')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">Click here to access the Vitality Protocol.</button><button type="button" onclick="declineUpsell('https://pay.simpleday.shop/u/cfd1b8ac3808d20d')" style="font-family: 'Poppins'; display: block; margin: 10px auto 0; background: transparent; border: none; color: rgba(182,175,214,0.4); font-size: 11px; font-weight: 400; text-decoration: underline; cursor: pointer; padding: 6px 10px; text-align: center;">No thanks, I decline this offer</button></div>
+<p class="cta-microtext">100% secure payment · Immediate activation after confirmation</p>
+
+</section>
+</main>
+
+<footer>
+<div class="lock-row">🔒 Secure payment</div>
+<div>Immediate activation after confirmation</div>
+</footer>
+
+<script>
+// ---------- Particules générées dynamiquement ----------
+(function generateParticles(){
+const container = document.getElementById('particles');
+const count = 34;
+for(let i=0;i<count;i++){
+const p = document.createElement('div');
+p.className = 'particle';
+const size = Math.random()*2 + 1.5;
+p.style.width = size+'px';
+p.style.height = size+'px';
+p.style.left = Math.random()*100+'%';
+p.style.top = Math.random()*100+'%';
+p.style.animationDuration = (10 + Math.random()*14)+'s';
+p.style.animationDelay = (Math.random()*10)+'s';
+container.appendChild(p);
+}
+})();
+
+// ---------- Fade-in ao rolar ----------
+(function initReveal(){
+const items = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.15 });
+items.forEach(item=> observer.observe(item));
+})();
+
+// ---------- Fallback caso upsell-processor.js não defina as funções ----------
+window.acceptUpsell = window.acceptUpsell || function(url){
+window.location.href = url;
+};
+window.declineUpsell = window.declineUpsell || function(url){
+window.location.href = url;
+};
+</script>
+
+</body></html>

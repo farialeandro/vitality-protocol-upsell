@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title id="pageTitle">Bienvenida — Vitality Protocol</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --gold: #e8c27a;
+    --gold-light: #f5deb0;
+    --green: #16d97a;
+    --green-dark: #0fa85f;
+    --bg-1: #05030d;
+    --glass: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.10);
+    --text-main: #f4f2ff;
+    --text-dim: #b6afd6;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(ellipse 120% 80% at 50% 0%, #241448 0%, #130a2e 35%, #070414 70%, #020104 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 32px 18px 60px;
+  }
+  .container{ max-width: 560px; margin: 0 auto; }
+
+  /* ---------- Saudacao ---------- */
+  .welcome-card{
+    text-align: center;
+    padding: 20px 8px 8px;
+  }
+  .welcome-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #6b5320, #8a6c2e);
+    border: 1px solid rgba(232,194,122,0.6);
+    color: var(--gold-light);
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .welcome-card h1{
+    font-size: clamp(24px, 6vw, 32px);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    background: linear-gradient(180deg, #ffffff, #c9c2ea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .welcome-card p{
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Cartao acolhedor ---------- */
+  .warm-box{
+    margin: 28px 0;
+    padding: 22px 20px;
+    border-radius: 18px;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .warm-box .emoji{ font-size: 26px; line-height: 1; }
+  .warm-box p{ font-size: 14.5px; color: var(--text-main); line-height: 1.6; }
+  .warm-box strong{ color: var(--gold-light); }
+
+  /* ---------- Chat ---------- */
+  .chat-shell{
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(232,194,122,0.35);
+    box-shadow: 0 20px 50px -14px rgba(0,0,0,0.65), 0 0 40px rgba(232,194,122,0.08);
+    background: #0c0820;
+  }
+  .chat-header{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, rgba(232,194,122,0.14), rgba(139,105,40,0.08));
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .chat-avatar{
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    flex: 0 0 56px;
+    overflow: hidden;
+    border: 1px solid rgba(232,194,122,0.5);
+  }
+  .chat-avatar img{
+    width: 100%; height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .chat-header-text .name{ font-size: 14.5px; font-weight: 700; color: var(--text-main); }
+  .chat-header-text .status{ font-size: 12px; color: var(--green); display: flex; align-items: center; gap: 5px; }
+  .chat-header-text .status::before{
+    content:""; width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+  }
+
+  .chat-body{
+    height: 320px;
+    overflow-y: auto;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .bubble{
+    max-width: 82%;
+    padding: 11px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .bubble.bot{
+    align-self: flex-start;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--glass-border);
+    border-bottom-left-radius: 4px;
+    color: var(--text-main);
+  }
+  .bubble.user{
+    align-self: flex-end;
+    background: linear-gradient(135deg, #1fe08a, #0fa85f);
+    color: #04140b;
+    font-weight: 600;
+    border-bottom-right-radius: 4px;
+  }
+
+  .quick-replies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 18px 14px;
+  }
+  .quick-chip{
+    font-size: 12.5px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(232,194,122,0.10);
+    border: 1px solid rgba(232,194,122,0.35);
+    color: var(--gold-light);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .quick-chip:hover{ background: rgba(232,194,122,0.22); }
+
+  .chat-input-row{
+    display: flex;
+    gap: 10px;
+    padding: 14px 16px;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.02);
+  }
+  .chat-input-row input{
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--text-main);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+  }
+  .chat-input-row input::placeholder{ color: rgba(182,175,214,0.5); }
+  .chat-input-row button{
+    background: linear-gradient(135deg, #1fe08a, #0fa85f);
+    border: none;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 0 8px 20px -6px rgba(15,168,95,0.6);
+  }
+
+  .typing{
+    display: flex;
+    gap: 4px;
+    align-self: flex-start;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+  }
+  .typing span{
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--text-dim);
+    animation: typingBounce 1.2s infinite ease-in-out;
+  }
+  .typing span:nth-child(2){ animation-delay: 0.15s; }
+  .typing span:nth-child(3){ animation-delay: 0.3s; }
+  @keyframes typingBounce{
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .foot-note{
+    text-align: center;
+    color: rgba(182,175,214,0.5);
+    font-size: 12px;
+    margin-top: 22px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="welcome-card">
+    <div class="welcome-badge" id="welcomeBadge">✦ Miembro Vitality Protocol</div>
+    <h1 id="greetingTitle">¡Hola! Sea muy bienvenida</h1>
+    <p id="welcomeSubtitle">Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.</p>
+  </section>
+
+  <div class="warm-box">
+    <div class="emoji">💛</div>
+    <p id="warmBoxText"><strong>Cualquier duda, aquí estamos para ti.</strong> Puedes preguntar sobre recetas, horarios, ingredientes o lo que necesites — a cualquier hora, respondemos rápido.</p>
+  </div>
+
+  <div class="chat-shell">
+    <div class="chat-header">
+      <div class="chat-avatar"><img src="https://images.unsplash.com/photo-1702669010463-3f2088abc0e9?w=160&h=160&fit=crop&crop=faces&q=80" alt="Débora"></div>
+      <div class="chat-header-text">
+        <div class="name">Débora</div>
+        <div class="status" id="statusText">En línea ahora</div>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="bubble bot" id="firstBotMsg">Hola, soy Débora, del equipo del Vitality Protocol. Estoy aquí para ayudarte en lo que necesites, a cualquier hora. ¿En qué te puedo ayudar hoy?</div>
+    </div>
+
+    <div class="quick-replies" id="quickReplies">
+      <div class="quick-chip" data-q="¿Qué receta puedo preparar hoy?">¿Qué receta preparo hoy?</div>
+      <div class="quick-chip" data-q="¿A qué hora es mejor hacer la actividad física?">¿A qué hora hago la actividad?</div>
+      <div class="quick-chip" data-q="Tengo una duda sobre un ingrediente">Duda sobre un ingrediente</div>
+    </div>
+
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Escribe tu pregunta...">
+      <button type="button" id="sendBtn" aria-label="Enviar">➤</button>
+    </div>
+  </div>
+
+  <p class="foot-note" id="footNote">🔒 Conversación privada y segura · Respuestas en segundos, a cualquier hora del día</p>
+
+</div>
+
+<script>
+  // ---------- Traducciones / Translations / Traductions ----------
+  const I18N = {
+    es: {
+      pageTitle: 'Bienvenida — Vitality Protocol',
+      badge: '✦ Miembro Vitality Protocol',
+      greeting: (n) => n ? ('¡Hola, ' + n + '! Sea muy bienvenida') : '¡Hola! Sea muy bienvenida',
+      subtitle: 'Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.',
+      warmBox: '<strong>Cualquier duda, aquí estamos para ti.</strong> Puedes preguntar sobre recetas, horarios, ingredientes o lo que necesites — a cualquier hora, respondemos rápido.',
+      status: 'En línea ahora',
+      firstBotMsg: (n) => (n ? ('Hola ' + n + ', ') : 'Hola, ') + 'soy Débora, del equipo del Vitality Protocol. Estoy aquí para ayudarte en lo que necesites, a cualquier hora. ¿En qué te puedo ayudar hoy?',
+      chips: [
+        { q: '¿Qué receta puedo preparar hoy?', label: '¿Qué receta preparo hoy?' },
+        { q: '¿A qué hora es mejor hacer la actividad física?', label: '¿A qué hora hago la actividad?' },
+        { q: 'Tengo una duda sobre un ingrediente', label: 'Duda sobre un ingrediente' }
+      ],
+      placeholder: 'Escribe tu pregunta...',
+      sendAria: 'Enviar',
+      footNote: '🔒 Conversación privada y segura · Respuestas en segundos, a cualquier hora del día',
+      fallbackNoRepeat: 'Disculpa, ¿puedes repetir tu pregunta?',
+      fallbackError: 'Uy, tuve un problema para responder ahora. ¿Puedes intentar de nuevo en unos segundos?'
+    },
+    en: {
+      pageTitle: 'Welcome — Vitality Protocol',
+      badge: '✦ Vitality Protocol Member',
+      greeting: (n) => n ? ('Hi, ' + n + '! Welcome aboard') : 'Hi! Welcome aboard',
+      subtitle: 'Your access is already active. From now on you have personalized support at every step — you are not alone on this journey.',
+      warmBox: '<strong>Any question, we\'re here for you.</strong> Ask about recipes, schedules, ingredients, or anything you need — any time, we reply fast.',
+      status: 'Online now',
+      firstBotMsg: (n) => (n ? ('Hi ' + n + ', ') : 'Hi, ') + 'I\'m Débora, from the Vitality Protocol team. I\'m here to help with anything you need, any time. What can I help you with today?',
+      chips: [
+        { q: 'What recipe can I make today?', label: 'What recipe today?' },
+        { q: 'What is the best time of day to take the recipe?', label: 'Best time to take it?' },
+        { q: 'I have a question about an ingredient', label: 'Question about an ingredient' }
+      ],
+      placeholder: 'Type your question...',
+      sendAria: 'Send',
+      footNote: '🔒 Private and secure conversation · Replies in seconds, any time of day',
+      fallbackNoRepeat: 'Sorry, could you repeat your question?',
+      fallbackError: 'Sorry, I had trouble replying just now. Can you try again in a few seconds?'
+    },
+    fr: {
+      pageTitle: 'Bienvenue — Vitality Protocol',
+      badge: '✦ Membre Vitality Protocol',
+      greeting: (n) => n ? ('Bonjour, ' + n + ' ! Bienvenue') : 'Bonjour ! Bienvenue',
+      subtitle: 'Votre accès est déjà actif. À partir de maintenant, vous bénéficiez d\'un accompagnement personnalisé à chaque étape — vous n\'êtes pas seule sur ce chemin.',
+      warmBox: '<strong>La moindre question, nous sommes là pour vous.</strong> Posez vos questions sur les recettes, les horaires, les ingrédients ou tout ce dont vous avez besoin — à toute heure, nous répondons rapidement.',
+      status: 'En ligne',
+      firstBotMsg: (n) => (n ? ('Bonjour ' + n + ', ') : 'Bonjour, ') + 'je suis Débora, de l\'équipe Vitality Protocol. Je suis là pour vous aider, à toute heure. Que puis-je faire pour vous aujourd\'hui ?',
+      chips: [
+        { q: 'Quelle recette puis-je préparer aujourd\'hui ?', label: 'Quelle recette aujourd\'hui ?' },
+        { q: 'À quelle heure vaut-il mieux faire l\'activité physique ?', label: 'Quand faire l\'activité ?' },
+        { q: 'J\'ai une question sur un ingrédient', label: 'Question sur un ingrédient' }
+      ],
+      placeholder: 'Écrivez votre question...',
+      sendAria: 'Envoyer',
+      footNote: '🔒 Conversation privée et sécurisée · Réponses en quelques secondes, à toute heure',
+      fallbackNoRepeat: 'Désolée, pouvez-vous répéter votre question ?',
+      fallbackError: 'Désolée, j\'ai eu un souci pour répondre. Pouvez-vous réessayer dans quelques secondes ?'
+    }
+  };
+
+  function detectLang(){
+    const raw = (navigator.language || (navigator.languages && navigator.languages[0]) || 'es').toLowerCase();
+    if(raw.startsWith('fr')) return 'fr';
+    if(raw.startsWith('en')) return 'en';
+    return 'es';
+  }
+
+  const LANG = 'en';
+  const T = I18N[LANG];
+
+  // ---------- Aplica idioma detectado + saudacao personalizada via ?nombre=/?name= na URL ----------
+  (function personalize(){
+    document.documentElement.lang = LANG;
+    document.getElementById('pageTitle').textContent = T.pageTitle;
+    document.getElementById('welcomeBadge').textContent = T.badge;
+    document.getElementById('welcomeSubtitle').textContent = T.subtitle;
+    document.getElementById('warmBoxText').innerHTML = T.warmBox;
+    document.getElementById('statusText').textContent = T.status;
+    document.getElementById('chatInput').placeholder = T.placeholder;
+    document.getElementById('sendBtn').setAttribute('aria-label', T.sendAria);
+    document.getElementById('footNote').textContent = T.footNote;
+
+    const quickRepliesEl = document.getElementById('quickReplies');
+    quickRepliesEl.innerHTML = '';
+    T.chips.forEach(chip => {
+      const el = document.createElement('div');
+      el.className = 'quick-chip';
+      el.dataset.q = chip.q;
+      el.textContent = chip.label;
+      el.addEventListener('click', ()=>{
+        addBubble(chip.q, 'user');
+        botReply(chip.q);
+      });
+      quickRepliesEl.appendChild(el);
+    });
+
+    const params = new URLSearchParams(location.search);
+    const nome = params.get('nombre') || params.get('nome') || params.get('name');
+    const clean = nome ? (nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase()) : null;
+    document.getElementById('greetingTitle').textContent = T.greeting(clean);
+    document.getElementById('firstBotMsg').textContent = T.firstBotMsg(clean);
+  })();
+
+  // ---------- Chat conectado a API da Debora (multi-idioma) ----------
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  function addBubble(text, who){
+    const b = document.createElement('div');
+    b.className = 'bubble ' + who;
+    b.textContent = text;
+    chatBody.appendChild(b);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function showTyping(){
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.id = 'typingIndicator';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.appendChild(t);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function removeTyping(){
+    const t = document.getElementById('typingIndicator');
+    if(t) t.remove();
+  }
+
+  async function botReply(userText){
+    showTyping();
+    const startedAt = Date.now();
+    // Espera minima "humana" antes de revelar a resposta (6 a 7s), mesmo que a IA responda mais rapido
+    const minDelay = 6000 + Math.random() * 1000;
+    try{
+      const res = await fetch('https://vitality-chat-api.replit.app/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message: userText, bot: 'debora_hbp' })
+      });
+      const data = await res.json();
+      const elapsed = Date.now() - startedAt;
+      if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
+      removeTyping();
+      addBubble(data.reply || T.fallbackNoRepeat, 'bot');
+    }catch(e){
+      const elapsed = Date.now() - startedAt;
+      if(elapsed < minDelay) await new Promise(r => setTimeout(r, minDelay - elapsed));
+      removeTyping();
+      addBubble(T.fallbackError, 'bot');
+    }
+  }
+
+  function handleSend(){
+    const val = chatInput.value.trim();
+    if(!val) return;
+    addBubble(val, 'user');
+    chatInput.value = '';
+    botReply(val);
+  }
+
+  sendBtn.addEventListener('click', handleSend);
+  chatInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') handleSend(); });
+</script>
+
+</body>
+</html>

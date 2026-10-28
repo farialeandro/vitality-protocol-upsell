@@ -99,6 +99,18 @@ main{max-width:1100px;margin:0 auto;padding-bottom:90px}
 .a1{background:var(--red);color:#fff}
 .a2{background:#1c2650;color:#fff;border:1px solid var(--line)!important}
 
+
+/* PARTNER OFFER */
+.offer{margin:26px 16px 0;padding:18px;border-radius:20px;background:linear-gradient(135deg,#1a2350,#141c3a);border:1px solid var(--line);display:flex;gap:16px;align-items:center}
+.offer .pic{flex:0 0 130px;height:130px;border-radius:16px;background:#fff center/contain no-repeat}
+.offer .tx{flex:1;min-width:0}
+.offer .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.offer h3{margin:4px 0 6px;font-size:19px}
+.offer p{margin:0 0 12px;color:#c6cce8;font-size:13.5px;line-height:1.5}
+.offer a.cta{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:14px}
+.offer small{display:block;margin-top:10px;color:#8b94bb;font-size:11.5px;line-height:1.45}
+@media(max-width:520px){.offer{flex-direction:column;text-align:center}.offer .pic{flex-basis:auto;width:150px}}
+
 /* FLOAT + FOOT */
 .fab{position:fixed;right:16px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:99px;background:linear-gradient(135deg,var(--red),#b81f2d);color:#fff;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 10px 28px rgba(229,72,77,.45)}
 footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center;font-size:12px;color:#7d86ad;line-height:1.6}
@@ -161,6 +173,9 @@ footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center
 var SUPPORT_EMAIL = "suportevitalityhosting@gmail.com";
 var DEBORA_URL    = "https://upsell.simpleday.shop/welcome-hbp/";
 var GUARANTEE_DAYS = 30;
+var OFFER_URL = "https://astrongroup.mycartpanda.com/checkout/212800347:1?afid=8zjQUdMFBu";
+var OFFER_IMG = "https://thumbor.cartpanda.com/b_28odAf00DA9L6CELRvuSlDDH4=/800x0/https://assets.mycartpanda.com/static/products_images/d8/aa/c7/1789145032.png";
+
 
 /* ============ CONTENT ============ */
 var U = function(id,w){return "https://images.unsplash.com/photo-"+id+"?auto=format&fit=crop&w="+(w||600)+"&q=70";};
@@ -286,6 +301,11 @@ function render(){
   });
   html += '<div class="rowwrap"><h3>Daily Habits<small>Small things, big difference</small></h3><div class="scroller">'+
     HABITS.map(function(h){return '<div class="card tip"><div class="ic">'+h.ic+'</div><b>'+h.t+'</b><p>'+h.p+'</p></div>';}).join("")+'</div></div>';
+  html += '<div class="offer"><div class="pic" style="background-image:url(\''+OFFER_IMG+'\')"></div><div class="tx">'+
+    '<span class="lbl">Optional · Partner offer</span><h3>VitalFlush Drops</h3>'+
+    '<p>Want extra daily support on top of your protocol? VitalFlush is a 100% natural formula in easy liquid drops, shipped to your door in the United States. Entirely optional.</p>'+
+    '<a class="cta" href="'+OFFER_URL+'" target="_blank" rel="noopener sponsored">See the 3-bottle offer →</a>'+
+    '<small>Dietary supplement, not a medicine. Individual results vary. Talk to your doctor before taking any supplement, especially if you take medication.</small></div></div>';
   html += '<div class="rowwrap"><h3>Help & Guarantee<small>We are with you</small></h3><div class="scroller">'+
     '<div class="card help" data-act="debora"><div class="ic">💬</div><b>Ask Débora, 24/7</b><p>Questions about a recipe, quantities or timing? Débora answers any time.</p></div>'+
     '<div class="card help" data-act="refund"><div class="ic">🛡️</div><b>'+GUARANTEE_DAYS+'-day guarantee & refund</b><p>Not for you? Just email us. No need to open a dispute with your bank.</p></div>'+

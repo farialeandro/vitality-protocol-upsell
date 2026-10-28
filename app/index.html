@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arterial Cleanse Protocol</title>
+<meta name="theme-color" content="#0a0f1f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Arterial Cleanse">
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#0a0f1f;--bg2:#101733;--card:#141c3a;--line:#232c52;--red:#e5484d;--red2:#ff6b6f;--gold:#f5be3c;--txt:#eef1fb;--mut:#9aa3c7}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{min-height:100vh;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer}
+.hidden{display:none!important}
+
+/* LOGIN */
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;
+ background:radial-gradient(circle at 20% 10%,#3a0f1c 0,transparent 45%),radial-gradient(circle at 90% 90%,#1b2a66 0,transparent 50%),var(--bg)}
+.lbox{width:100%;max-width:400px;text-align:center}
+.logo{width:84px;height:84px;margin:0 auto 18px;border-radius:24px;background:linear-gradient(135deg,var(--red),#7a1424);display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 12px 40px rgba(229,72,77,.4)}
+.lbox h1{font:700 30px/1.15 Georgia,"Times New Roman",serif;letter-spacing:.02em;margin:0 0 8px}
+.lbox p{color:var(--mut);margin:0 0 26px;line-height:1.5}
+.lbox input{width:100%;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:16px;outline:none}
+.lbox input:focus{border-color:var(--red)}
+.btn{display:block;width:100%;margin-top:14px;padding:16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--red),#c2262d);color:#fff;font-weight:800;font-size:16px;box-shadow:0 10px 26px rgba(229,72,77,.35)}
+.small{font-size:12px;color:var(--mut);margin-top:16px}
+
+/* TOP BAR */
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(180deg,rgba(10,15,31,.96),rgba(10,15,31,.75));backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.05)}
+.brand{font:700 15px/1 Georgia,serif;letter-spacing:.08em;text-transform:uppercase}
+.brand span{color:var(--red2)}
+.hbtn{background:none;border:1px solid var(--line);color:var(--txt);padding:8px 12px;border-radius:10px;font-size:13px}
+main{max-width:1100px;margin:0 auto;padding-bottom:90px}
+
+/* HERO */
+.hero{position:relative;margin:14px 16px 6px;border-radius:22px;overflow:hidden;min-height:300px;display:flex;align-items:flex-end;
+ background:linear-gradient(0deg,rgba(10,15,31,.95) 8%,rgba(10,15,31,.25) 70%),url("https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1200&q=70") center/cover}
+.hero .in{padding:22px}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero h2{font:700 30px/1.15 Georgia,serif;margin:0 0 8px}
+.hero p{margin:0 0 16px;color:#d4d9f0;line-height:1.5;max-width:520px}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap}
+.pbtn{padding:13px 20px;border:0;border-radius:12px;background:var(--red);color:#fff;font-weight:800;font-size:15px}
+.gbtn{padding:13px 20px;border-radius:12px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18);font-weight:700;font-size:15px}
+
+/* PROGRESS */
+.prog{margin:14px 16px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.prog .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px}
+.bar{height:8px;border-radius:99px;background:#222b52;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:99px;transition:width .5s}
+
+/* ROWS */
+.rowwrap{margin:22px 0 0}
+.rowwrap h3{margin:0 16px 10px;font-size:18px}
+.rowwrap h3 small{color:var(--mut);font-weight:400;font-size:13px;margin-left:6px}
+.scroller{display:flex;gap:12px;overflow-x:auto;padding:0 16px 8px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.scroller::-webkit-scrollbar{display:none}
+.card{position:relative;flex:0 0 190px;height:250px;border-radius:16px;overflow:hidden;scroll-snap-align:start;background:var(--card) center/cover;border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,10,24,.95) 12%,rgba(7,10,24,0) 62%)}
+.card .ct{position:absolute;left:12px;right:12px;bottom:12px;z-index:2}
+.card .ct b{display:block;font-size:15px;line-height:1.25;margin-bottom:4px}
+.card .ct span{font-size:12px;color:#cdd3ee}
+.done{position:absolute;top:10px;right:10px;z-index:3;width:28px;height:28px;border-radius:50%;background:#16a34a;display:none;align-items:center;justify-content:center;font-size:15px}
+.card.isdone .done{display:flex}
+.fav{position:absolute;top:10px;left:10px;z-index:3;font-size:18px;background:rgba(0,0,0,.45);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+.tip{flex:0 0 250px;height:auto;min-height:150px;padding:16px;background:var(--card);cursor:default}
+.tip::after{display:none}
+.tip b{display:block;margin-bottom:6px}
+.tip p{margin:0;font-size:13.5px;color:#c6cce8;line-height:1.5}
+.tip .ic{font-size:26px;margin-bottom:8px}
+.help{flex:0 0 250px;height:auto;min-height:150px;padding:16px;background:linear-gradient(135deg,#1a2350,#141c3a)}
+.help::after{display:none}
+.help .ic{font-size:26px;margin-bottom:8px}
+.help b{display:block;margin-bottom:6px}
+.help p{margin:0;font-size:13.5px;color:#c6cce8;line-height:1.5}
+
+/* MODAL */
+#modal{position:fixed;inset:0;z-index:50;background:rgba(3,5,14,.82);display:none;align-items:flex-end;justify-content:center}
+#modal.open{display:flex}
+.sheet{width:100%;max-width:640px;max-height:92vh;overflow-y:auto;background:var(--bg2);border-radius:22px 22px 0 0;border:1px solid var(--line);animation:up .28s ease}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.sheet .img{height:230px;background:center/cover;position:relative}
+.sheet .img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg2) 2%,rgba(16,23,51,0) 60%)}
+.xbtn{position:absolute;top:12px;right:12px;z-index:3;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:18px}
+.sb{padding:4px 20px 26px}
+.sb h2{font:700 26px/1.2 Georgia,serif;margin:0 0 8px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{font-size:12px;padding:5px 10px;border-radius:99px;background:#1c2650;color:#cfd6f5}
+.sb h4{margin:18px 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.sb ul,.sb ol{margin:0;padding-left:20px;line-height:1.7;color:#dfe3f7}
+.note{margin-top:16px;padding:12px 14px;border-radius:12px;background:#1a2350;color:#cdd3f5;font-size:14px;line-height:1.5}
+.act{display:flex;gap:10px;margin-top:20px}
+.act button{flex:1;padding:14px;border-radius:12px;border:0;font-weight:800;font-size:15px}
+.a1{background:var(--red);color:#fff}
+.a2{background:#1c2650;color:#fff;border:1px solid var(--line)!important}
+
+/* FLOAT + FOOT */
+.fab{position:fixed;right:16px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:99px;background:linear-gradient(135deg,var(--red),#b81f2d);color:#fff;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 10px 28px rgba(229,72,77,.45)}
+footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center;font-size:12px;color:#7d86ad;line-height:1.6}
+@media(min-width:760px){.card{flex-basis:220px;height:290px}.hero{min-height:380px}.hero h2{font-size:42px}.sheet{border-radius:22px;margin-bottom:5vh}#modal{align-items:center}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<section id="login">
+  <div class="lbox">
+    <div class="logo">🍯</div>
+    <h1>Arterial Cleanse<br>Protocol</h1>
+    <p>Your private members area.<br>Enter your name or e-mail to access. No password needed.</p>
+    <input id="who" type="text" placeholder="Your name or e-mail" autocomplete="name" autocapitalize="words">
+    <button class="btn" id="enter">Access my protocol →</button>
+    <div class="small">🔒 Your access stays saved on this device.</div>
+  </div>
+</section>
+
+<!-- APP -->
+<div id="app" class="hidden">
+  <header>
+    <div class="brand">Arterial <span>Cleanse</span></div>
+    <button class="hbtn" id="logout">Sign out</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="in">
+        <span class="tag">Welcome</span>
+        <h2 id="hello">Hello!</h2>
+        <p>Your natural honey-based recipes, light movement routines and daily habits, all in one place. Start with the 7-day kickstart and go at your own pace.</p>
+        <div class="row">
+          <button class="pbtn" id="startBtn">▶ Start here</button>
+          <button class="gbtn" id="askBtn">💬 Ask Débora</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="prog">
+      <div class="top"><span><b id="pdone">0</b> of <b id="ptotal">0</b> completed</span><span id="ppct">0%</span></div>
+      <div class="bar"><i id="pbar"></i></div>
+    </section>
+
+    <div id="rows"></div>
+  </main>
+
+  <a class="fab" id="fab" href="#" target="_blank" rel="noopener">💬 Ask Débora</a>
+  <footer>
+    © Arterial Cleanse Protocol · Educational wellness content. It does not replace medical advice;<br>
+    if you take medication or have a health condition, check with your doctor before changing your routine.
+  </footer>
+</div>
+
+<!-- MODAL -->
+<div id="modal"><div class="sheet" id="sheet"></div></div>
+
+<script>
+/* ============ SETTINGS ============ */
+var SUPPORT_EMAIL = "suportevitalityhosting@gmail.com";
+var DEBORA_URL    = "https://upsell.simpleday.shop/welcome-hbp/";
+var GUARANTEE_DAYS = 30;
+
+/* ============ CONTENT ============ */
+var U = function(id,w){return "https://images.unsplash.com/photo-"+id+"?auto=format&fit=crop&w="+(w||600)+"&q=70";};
+var IMG = {
+  dipper:"1558642452-9d2a7deb7f62", jar:"1471943311424-646960669fbc", lemon:"1523677011781-c91d1bbe2f9e",
+  tea:"1576092768241-dec231879fc3", smoothie:"1505252585461-04db1eb84625", bowl:"1517673400267-0251440c45dc",
+  green:"1610970881699-44a5587cabec", walk:"1476480862126-209bfaa8edc8", yoga:"1544367567-0f2fcb009e0b",
+  move:"1518611012118-696072aa579a", kitchen:"1556909114-f6e7ad7d3136", avocado:"1490645935967-10de6ba17061",
+  salad:"1512621776951-a57141f2eefd", salad2:"1511690743698-d9d85f2fbf38", berries:"1444459094717-a39f1e3e0903",
+  bee:"1473973266408-ed4e27abdd47"
+};
+var ITEMS = [
+ /* MORNING */
+ {id:"m1",row:"morning",title:"Warm Honey-Lemon Water",img:IMG.lemon,time:"5 min",lvl:"Easy",
+  ing:["1 cup (240 ml) warm water, not boiling","1 tsp raw honey","Juice of ½ lemon"],
+  steps:["Warm the water until comfortable to drink (about 40 °C / 105 °F).","Stir in the honey until fully dissolved.","Add the lemon juice, stir and sip slowly.","Best taken first thing in the morning, before breakfast."],
+  tip:"Never add honey to boiling water. Heat above ~40 °C reduces its natural properties."},
+ {id:"m2",row:"morning",title:"Honey-Cinnamon Morning Tea",img:IMG.tea,time:"7 min",lvl:"Easy",
+  ing:["1 cup hot water","1 cinnamon stick (or ½ tsp Ceylon cinnamon)","1 tsp raw honey"],
+  steps:["Steep the cinnamon in hot water for 5 minutes.","Let it cool for 2 minutes until warm.","Stir in the honey and drink while warm."],
+  tip:"Ceylon cinnamon is gentler for daily use than the common cassia type."},
+ {id:"m3",row:"morning",title:"Honey Oat & Berry Bowl",img:IMG.bowl,time:"10 min",lvl:"Easy",
+  ing:["½ cup rolled oats","1 cup milk or plant milk","1 handful fresh berries","1 tsp honey","1 tbsp chopped walnuts"],
+  steps:["Cook the oats in the milk for 4–5 minutes, stirring.","Pour into a bowl and top with berries and walnuts.","Drizzle the honey on top and enjoy warm."],
+  tip:"Oats and berries add fiber and antioxidants, a great base for a heart-friendly breakfast."},
+ {id:"m4",row:"morning",title:"Honey-Ginger Wake-Up Shot",img:IMG.dipper,time:"5 min",lvl:"Easy",
+  ing:["1 small piece fresh ginger (2 cm)","1 tsp honey","Juice of ½ lemon","¼ cup warm water"],
+  steps:["Grate the ginger finely.","Mix with honey, lemon juice and warm water.","Strain if you prefer and drink in a few sips."],
+  tip:"Start with a small piece of ginger and adjust to taste."},
+ /* EVENING */
+ {id:"e1",row:"evening",title:"Chamomile & Honey Wind-Down",img:IMG.tea,time:"8 min",lvl:"Easy",
+  ing:["1 chamomile tea bag or 1 tbsp dried flowers","1 cup hot water","1 tsp honey"],
+  steps:["Steep the chamomile for 5 minutes, covered.","Let it cool slightly and stir in the honey.","Sip slowly 30–60 minutes before bed."],
+  tip:"Pair it with dim lights and no screens for a calmer evening routine."},
+ {id:"e2",row:"evening",title:"Golden Honey Milk",img:IMG.jar,time:"8 min",lvl:"Easy",
+  ing:["1 cup warm milk or plant milk","¼ tsp turmeric","A pinch of black pepper","1 tsp honey"],
+  steps:["Warm the milk gently, do not boil.","Whisk in the turmeric and black pepper.","Stir in the honey off the heat and drink warm."],
+  tip:"Make it a ritual: same time each evening helps it become a habit."},
+ {id:"e3",row:"evening",title:"Honey-Hibiscus Iced Tea",img:IMG.berries,time:"10 min + chill",lvl:"Easy",
+  ing:["2 tbsp dried hibiscus flowers","2 cups hot water","1 tsp honey","Ice and a lemon slice"],
+  steps:["Steep the hibiscus in hot water for 10 minutes.","Strain, stir in the honey and let it cool.","Serve over ice with a lemon slice."],
+  tip:"Hibiscus is a popular herbal tea. If you take any medication, ask your doctor before drinking it regularly."},
+ /* MEALS */
+ {id:"f1",row:"meals",title:"Honey-Lemon Garlic Dressing",img:IMG.salad,time:"5 min",lvl:"Easy",
+  ing:["3 tbsp extra virgin olive oil","Juice of 1 lemon","1 small garlic clove, minced","1 tsp honey","Pinch of pepper"],
+  steps:["Whisk everything in a small bowl or shake in a jar.","Pour over fresh greens, tomato and cucumber.","Keep leftovers in the fridge up to 3 days."],
+  tip:"A flavorful dressing means you can skip the extra salt."},
+ {id:"f2",row:"meals",title:"Avocado Power Bowl with Honey Drizzle",img:IMG.avocado,time:"15 min",lvl:"Easy",
+  ing:["½ avocado, sliced","1 cup mixed greens","½ cup cooked quinoa or brown rice","1 boiled egg","1 tsp honey + 1 tsp lemon juice"],
+  steps:["Place greens and quinoa in a bowl.","Add the avocado and sliced egg.","Mix honey and lemon and drizzle on top."],
+  tip:"Healthy fats from avocado and olive oil are part of a heart-friendly eating style."},
+ {id:"f3",row:"meals",title:"Honey-Glazed Baked Salmon",img:IMG.salad2,time:"20 min",lvl:"Medium",
+  ing:["2 salmon fillets","1 tbsp honey","1 tbsp lemon juice","1 garlic clove, minced","1 tsp olive oil","Fresh dill or parsley"],
+  steps:["Heat the oven to 200 °C / 400 °F.","Mix honey, lemon, garlic and oil, and brush over the salmon.","Bake 12–15 minutes until it flakes easily.","Finish with fresh herbs."],
+  tip:"Fatty fish twice a week is a classic heart-healthy habit."},
+ {id:"f4",row:"meals",title:"Beet, Berry & Honey Smoothie",img:IMG.smoothie,time:"5 min",lvl:"Easy",
+  ing:["½ cup cooked beet","½ cup berries","1 cup unsweetened plant milk","1 tsp honey","Ice"],
+  steps:["Add everything to a blender.","Blend until smooth.","Drink fresh, as a snack or breakfast."],
+  tip:"Beets give a natural sweetness, so you often need less honey."},
+ {id:"f5",row:"meals",title:"Green Apple & Honey Smoothie",img:IMG.green,time:"5 min",lvl:"Easy",
+  ing:["1 green apple","1 handful spinach","½ cucumber","Juice of ½ lemon","1 tsp honey","½ cup water + ice"],
+  steps:["Chop the apple and cucumber.","Blend all ingredients until smooth.","Serve cold."],
+  tip:"Add a little fresh mint for extra freshness."},
+ /* MOVE */
+ {id:"a1",row:"move",title:"10-Minute Gentle Morning Walk",img:IMG.walk,time:"10 min",lvl:"Easy",
+  ing:["Comfortable shoes","A safe route or treadmill"],
+  steps:["Walk at a relaxed pace you can hold a conversation at.","Keep shoulders loose and breathe through your nose.","Aim to build up to 20–30 minutes over a few weeks."],
+  tip:"Consistency beats intensity. A short walk every day is better than one long walk a week."},
+ {id:"a2",row:"move",title:"Easy Full-Body Stretch",img:IMG.yoga,time:"8 min",lvl:"Easy",
+  ing:["A mat or soft surface"],
+  steps:["Neck rolls: 5 slow circles each way.","Shoulder rolls: 10 backward.","Reach up and side-bend: 5 each side.","Gentle forward fold: hold 20 seconds, knees soft.","Finish with 5 deep breaths."],
+  tip:"Move slowly. Stretching should never hurt; stop if you feel pain."},
+ {id:"a3",row:"move",title:"Calm Breathing Break",img:IMG.move,time:"5 min",lvl:"Easy",
+  ing:["A quiet spot to sit"],
+  steps:["Sit comfortably and relax your shoulders.","Breathe in through the nose for 4 seconds.","Breathe out slowly through the mouth for 6 seconds.","Repeat for 5 minutes."],
+  tip:"Slow breathing is a simple way to unwind. Try it before meals or at bedtime."},
+ {id:"a4",row:"move",title:"After-Dinner Stroll",img:IMG.walk,time:"15 min",lvl:"Easy",
+  ing:["Comfortable shoes"],
+  steps:["Wait 10–15 minutes after eating.","Walk at an easy, steady pace for 10–15 minutes.","Enjoy the fresh air and leave the phone in your pocket."],
+  tip:"A light walk after dinner is a great daily habit for the whole family."}
+];
+var ROWS = [
+ {key:"morning",title:"Morning Honey Rituals",sub:"Start the day right"},
+ {key:"meals",title:"Heart-Friendly Recipes",sub:"Meals & smoothies"},
+ {key:"evening",title:"Evening Wind-Down",sub:"Calm drinks"},
+ {key:"move",title:"Move Your Day",sub:"Light activity, no gym needed"}
+];
+var HABITS = [
+ {ic:"💧",t:"Drink water through the day",p:"Keep a bottle nearby and sip regularly. Aim for 6 to 8 glasses unless your doctor advises otherwise."},
+ {ic:"🧂",t:"Go easy on salt",p:"Use lemon, garlic, herbs and spices to add flavor. Read labels on packaged foods."},
+ {ic:"😴",t:"Protect your sleep",p:"A regular bedtime and a screen-free last hour make a real difference."},
+ {ic:"🍯",t:"Honey in moderation",p:"Honey is still a sugar. Stay with about 1 teaspoon per recipe. If you have diabetes, ask your doctor first."},
+ {ic:"🥗",t:"Fill half your plate with plants",p:"Vegetables, fruits, beans and whole grains are the base of a heart-friendly plate."}
+];
+var START = ["m1","a1","f1","e1","a2","f4","e2"];
+
+/* ============ STATE ============ */
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var user = load("acp_user",null), doneSet = load("acp_done",{}), favSet = load("acp_fav",{});
+function $(id){return document.getElementById(id);}
+function firstName(u){
+  if(!u) return "";
+  var n = u.indexOf("@")>0 ? u.split("@")[0] : u;
+  n = n.replace(/[._\-0-9]+/g," ").trim().split(" ")[0] || "";
+  return n ? n.charAt(0).toUpperCase()+n.slice(1) : "";
+}
+function byId(id){for(var i=0;i<ITEMS.length;i++)if(ITEMS[i].id===id)return ITEMS[i];}
+
+/* ============ RENDER ============ */
+function cardHTML(it){
+  return '<div class="card'+(doneSet[it.id]?' isdone':'')+'" data-id="'+it.id+'" style="background-image:url(\''+U(it.img)+'\')">'+
+    '<span class="fav">'+(favSet[it.id]?'❤️':'🤍')+'</span><span class="done">✓</span>'+
+    '<div class="ct"><b>'+it.title+'</b><span>⏱ '+it.time+' · '+it.lvl+'</span></div></div>';
+}
+function render(){
+  var html = "";
+  var fav = ITEMS.filter(function(i){return favSet[i.id];});
+  if(fav.length) html += '<div class="rowwrap"><h3>My List <small>Your favorites</small></h3><div class="scroller">'+fav.map(cardHTML).join("")+'</div></div>';
+  ROWS.forEach(function(r){
+    var list = ITEMS.filter(function(i){return i.row===r.key;});
+    html += '<div class="rowwrap"><h3>'+r.title+'<small>'+r.sub+'</small></h3><div class="scroller">'+list.map(cardHTML).join("")+'</div></div>';
+  });
+  html += '<div class="rowwrap"><h3>Daily Habits<small>Small things, big difference</small></h3><div class="scroller">'+
+    HABITS.map(function(h){return '<div class="card tip"><div class="ic">'+h.ic+'</div><b>'+h.t+'</b><p>'+h.p+'</p></div>';}).join("")+'</div></div>';
+  html += '<div class="rowwrap"><h3>Help & Guarantee<small>We are with you</small></h3><div class="scroller">'+
+    '<div class="card help" data-act="debora"><div class="ic">💬</div><b>Ask Débora, 24/7</b><p>Questions about a recipe, quantities or timing? Débora answers any time.</p></div>'+
+    '<div class="card help" data-act="refund"><div class="ic">🛡️</div><b>'+GUARANTEE_DAYS+'-day guarantee & refund</b><p>Not for you? Just email us. No need to open a dispute with your bank.</p></div>'+
+    '<div class="card help" data-act="support"><div class="ic">✉️</div><b>Contact support</b><p>Write to '+SUPPORT_EMAIL+' and we reply as soon as we can.</p></div>'+
+    '<div class="card help" data-act="install"><div class="ic">📲</div><b>Add to your home screen</b><p>Open this page on your phone and save it like an app for one-tap access.</p></div>'+
+    '</div></div>';
+  $("rows").innerHTML = html;
+  var d = Object.keys(doneSet).filter(function(k){return doneSet[k]&&byId(k);}).length;
+  $("pdone").textContent = d; $("ptotal").textContent = ITEMS.length;
+  var pct = Math.round(d/ITEMS.length*100); $("ppct").textContent = pct+"%"; $("pbar").style.width = pct+"%";
+}
+function debUrl(){var n=firstName(user);return DEBORA_URL+(n?("?name="+encodeURIComponent(n)):"");}
+
+/* ============ MODAL ============ */
+function openItem(id){
+  var it = byId(id); if(!it) return;
+  $("sheet").innerHTML =
+   '<div class="img" style="background-image:url(\''+U(it.img,1000)+'\')"><button class="xbtn" id="x">✕</button></div>'+
+   '<div class="sb"><h2>'+it.title+'</h2><div class="meta"><span class="chip">⏱ '+it.time+'</span><span class="chip">'+it.lvl+'</span></div>'+
+   '<h4>'+(it.row==="move"?"What you need":"Ingredients")+'</h4><ul>'+it.ing.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>'+
+   '<h4>'+(it.row==="move"?"How to do it":"Preparation")+'</h4><ol>'+it.steps.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ol>'+
+   '<div class="note">💡 '+it.tip+'</div>'+
+   '<div class="act"><button class="a1" id="dn">'+(doneSet[id]?"✓ Completed":"Mark as done")+'</button><button class="a2" id="fv">'+(favSet[id]?"❤️ Saved":"🤍 Save")+'</button></div>'+
+   '<div class="act"><button class="a2" id="qa">💬 Ask Débora about this</button></div></div>';
+  $("modal").classList.add("open"); document.body.style.overflow="hidden";
+  $("x").onclick = closeModal;
+  $("dn").onclick = function(){doneSet[id]=!doneSet[id];save("acp_done",doneSet);this.textContent=doneSet[id]?"✓ Completed":"Mark as done";render();};
+  $("fv").onclick = function(){favSet[id]=!favSet[id];save("acp_fav",favSet);this.textContent=favSet[id]?"❤️ Saved":"🤍 Save";render();};
+  $("qa").onclick = function(){window.open(debUrl(),"_blank");};
+}
+function openInfo(title,html){
+  $("sheet").innerHTML = '<div class="img" style="height:120px"><button class="xbtn" id="x">✕</button></div><div class="sb"><h2>'+title+'</h2>'+html+'</div>';
+  $("modal").classList.add("open"); document.body.style.overflow="hidden"; $("x").onclick = closeModal;
+}
+function closeModal(){$("modal").classList.remove("open");document.body.style.overflow="";}
+$("modal").addEventListener("click",function(e){if(e.target===$("modal"))closeModal();});
+
+function openAct(a){
+  if(a==="debora"){window.open(debUrl(),"_blank");return;}
+  if(a==="support"){window.location.href="mailto:"+SUPPORT_EMAIL+"?subject="+encodeURIComponent("Support request - Arterial Cleanse Protocol");return;}
+  if(a==="refund"){
+    var sub=encodeURIComponent("Refund request - Arterial Cleanse Protocol"),
+        body=encodeURIComponent("Hello, I would like to request a refund.\n\nName: "+(user||"")+"\nE-mail used at purchase: \n");
+    openInfo("Guarantee & refund",
+      '<p style="line-height:1.6;color:#dfe3f7">You are covered by our <b>'+GUARANTEE_DAYS+'-day guarantee</b>. If the protocol is not for you, simply send us an e-mail and we will take care of your refund.</p>'+
+      '<div class="note">✅ There is no need to open a dispute or chargeback with your bank. It is faster and easier to write to us directly.</div>'+
+      '<ol style="margin-top:14px"><li>Click the button below to send us an e-mail.</li><li>Include the e-mail you used at purchase.</li><li>We confirm your refund by e-mail.</li></ol>'+
+      '<div class="act"><button class="a1" onclick="window.location.href=\'mailto:'+SUPPORT_EMAIL+'?subject='+sub+'&body='+body+'\'">✉️ Request my refund</button></div>');
+    return;
+  }
+  if(a==="install"){
+    openInfo("Add to your home screen",
+      '<p style="line-height:1.6;color:#dfe3f7">Keep the app one tap away:</p>'+
+      '<h4>iPhone (Safari)</h4><ol><li>Tap the Share button.</li><li>Choose <b>Add to Home Screen</b>.</li></ol>'+
+      '<h4>Android (Chrome)</h4><ol><li>Tap the ⋮ menu.</li><li>Choose <b>Add to Home screen</b> or <b>Install app</b>.</li></ol>');
+  }
+}
+
+/* ============ EVENTS ============ */
+document.addEventListener("click",function(e){
+  var c = e.target.closest(".card"); if(!c) return;
+  if(c.dataset.act){openAct(c.dataset.act);return;}
+  if(c.dataset.id) openItem(c.dataset.id);
+});
+$("startBtn").onclick = function(){
+  var li = START.map(function(id,i){var it=byId(id);return '<li style="margin-bottom:8px"><b>Day '+(i+1)+':</b> <a href="#" data-go="'+id+'" style="color:#ff8c90">'+it.title+'</a></li>';}).join("");
+  openInfo("Your 7-day kickstart",'<p style="line-height:1.6;color:#dfe3f7">One simple step per day. Tap a day to open it and mark it as done when finished.</p><ol style="padding-left:0;list-style:none;margin-top:12px">'+li+'</ol>');
+  $("sheet").querySelectorAll("[data-go]").forEach(function(a){a.onclick=function(ev){ev.preventDefault();openItem(a.dataset.go);};});
+};
+$("askBtn").onclick = function(){window.open(debUrl(),"_blank");};
+$("fab").addEventListener("click",function(e){e.preventDefault();window.open(debUrl(),"_blank");});
+$("logout").onclick = function(){try{localStorage.removeItem("acp_user");}catch(e){} location.reload();};
+function enter(){
+  var v = $("who").value.trim(); if(!v){$("who").focus();return;}
+  user = v; save("acp_user",user); start();
+}
+$("enter").onclick = enter;
+$("who").addEventListener("keydown",function(e){if(e.key==="Enter")enter();});
+
+function start(){
+  $("login").classList.add("hidden"); $("app").classList.remove("hidden");
+  var n = firstName(user); $("hello").textContent = n ? ("Hello, "+n+"!") : "Hello!";
+  render();
+}
+/* auto-fill from ?name= or ?email= link */
+(function(){
+  try{
+    var p = new URLSearchParams(location.search), q = p.get("name")||p.get("email");
+    if(q && !user){ user = q; save("acp_user",user); }
+  }catch(e){}
+  if(user) start();
+})();
+</script>
+</body>
+</html>

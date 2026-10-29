@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -136,10 +136,10 @@ footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center
   <div class="lbox">
     <div class="logo">🍯</div>
     <h1>Arterial Cleanse<br>Protocol</h1>
-    <p>Your private members area.<br>Enter your name or e-mail to access. No password needed.</p>
-    <input id="who" type="text" placeholder="Your name or e-mail" autocomplete="name" autocapitalize="words">
-    <button class="btn" id="enter">Access my protocol →</button>
-    <div class="small">🔒 Your access stays saved on this device.</div>
+    <p>Tu área privada de miembros.<br>Ingresa tu nombre o correo para acceder. No necesitas contraseña.</p>
+    <input id="who" type="text" placeholder="Tu nombre o correo" autocomplete="name" autocapitalize="words">
+    <button class="btn" id="enter">Acceder a mi protocolo →</button>
+    <div class="small">🔒 Tu acceso queda guardado en este dispositivo.</div>
   </div>
 </section>
 
@@ -147,33 +147,33 @@ footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center
 <div id="app" class="hidden">
   <header>
     <div class="brand">Arterial <span>Cleanse</span></div>
-    <button class="hbtn" id="logout">Sign out</button>
+    <button class="hbtn" id="logout">Salir</button>
   </header>
   <main>
     <section class="hero">
       <div class="in">
-        <span class="tag">Welcome</span>
-        <h2 id="hello">Hello!</h2>
-        <p>Your natural honey-based recipes, light movement routines and daily habits, all in one place. Start with the 7-day kickstart and go at your own pace.</p>
+        <span class="tag">Bienvenido/a</span>
+        <h2 id="hello">¡Hola!</h2>
+        <p>Tus recetas naturales con miel, rutinas de movimiento suave y hábitos diarios, todo en un solo lugar. Empieza con el plan de inicio de 7 días y avanza a tu propio ritmo.</p>
         <div class="row">
-          <button class="pbtn" id="startBtn">▶ Start here</button>
-          <button class="gbtn" id="askBtn">💬 Ask Débora</button>
+          <button class="pbtn" id="startBtn">▶ Empieza aquí</button>
+          <button class="gbtn" id="askBtn">💬 Pregunta a Débora</button>
         </div>
       </div>
     </section>
 
     <section class="prog">
-      <div class="top"><span><b id="pdone">0</b> of <b id="ptotal">0</b> completed</span><span id="ppct">0%</span></div>
+      <div class="top"><span><b id="pdone">0</b> de <b id="ptotal">0</b> completadas</span><span id="ppct">0%</span></div>
       <div class="bar"><i id="pbar"></i></div>
     </section>
 
     <div id="rows"></div>
   </main>
 
-  <a class="fab" id="fab" href="#" target="_blank" rel="noopener"><span class="fav2" id="fabav"></span> Ask Débora</a>
+  <a class="fab" id="fab" href="#" target="_blank" rel="noopener"><span class="fav2" id="fabav"></span> Pregunta a Débora</a>
   <footer>
-    © Arterial Cleanse Protocol · Educational wellness content. It does not replace medical advice;<br>
-    if you take medication or have a health condition, check with your doctor before changing your routine.
+    © Arterial Cleanse Protocol · Contenido educativo de bienestar. No sustituye el consejo médico;<br>
+    si tomas medicación o tienes alguna condición de salud, consulta a tu médico antes de cambiar tu rutina.
   </footer>
 </div>
 
@@ -203,87 +203,87 @@ var IMG = {
   bee:"1473973266408-ed4e27abdd47"
 };
 var ITEMS = [
- /* MORNING */
- {id:"m1",row:"morning",title:"Warm Honey-Lemon Water",img:IMG.lemon,time:"5 min",lvl:"Easy",
-  ing:["1 cup (240 ml) warm water, not boiling","1 tsp raw honey","Juice of ½ lemon"],
-  steps:["Warm the water until comfortable to drink (about 40 °C / 105 °F).","Stir in the honey until fully dissolved.","Add the lemon juice, stir and sip slowly.","Best taken first thing in the morning, before breakfast."],
-  tip:"Never add honey to boiling water. Heat above ~40 °C reduces its natural properties."},
- {id:"m2",row:"morning",title:"Honey-Cinnamon Morning Tea",img:IMG.tea,time:"7 min",lvl:"Easy",
-  ing:["1 cup hot water","1 cinnamon stick (or ½ tsp Ceylon cinnamon)","1 tsp raw honey"],
-  steps:["Steep the cinnamon in hot water for 5 minutes.","Let it cool for 2 minutes until warm.","Stir in the honey and drink while warm."],
-  tip:"Ceylon cinnamon is gentler for daily use than the common cassia type."},
- {id:"m3",row:"morning",title:"Honey Oat & Berry Bowl",img:IMG.bowl,time:"10 min",lvl:"Easy",
-  ing:["½ cup rolled oats","1 cup milk or plant milk","1 handful fresh berries","1 tsp honey","1 tbsp chopped walnuts"],
-  steps:["Cook the oats in the milk for 4–5 minutes, stirring.","Pour into a bowl and top with berries and walnuts.","Drizzle the honey on top and enjoy warm."],
-  tip:"Oats and berries add fiber and antioxidants, a great base for a heart-friendly breakfast."},
- {id:"m4",row:"morning",title:"Honey-Ginger Wake-Up Shot",img:IMG.dipper,time:"5 min",lvl:"Easy",
-  ing:["1 small piece fresh ginger (2 cm)","1 tsp honey","Juice of ½ lemon","¼ cup warm water"],
-  steps:["Grate the ginger finely.","Mix with honey, lemon juice and warm water.","Strain if you prefer and drink in a few sips."],
-  tip:"Start with a small piece of ginger and adjust to taste."},
- /* EVENING */
- {id:"e1",row:"evening",title:"Chamomile & Honey Wind-Down",img:IMG.tea,time:"8 min",lvl:"Easy",
-  ing:["1 chamomile tea bag or 1 tbsp dried flowers","1 cup hot water","1 tsp honey"],
-  steps:["Steep the chamomile for 5 minutes, covered.","Let it cool slightly and stir in the honey.","Sip slowly 30–60 minutes before bed."],
-  tip:"Pair it with dim lights and no screens for a calmer evening routine."},
- {id:"e2",row:"evening",title:"Golden Honey Milk",img:IMG.jar,time:"8 min",lvl:"Easy",
-  ing:["1 cup warm milk or plant milk","¼ tsp turmeric","A pinch of black pepper","1 tsp honey"],
-  steps:["Warm the milk gently, do not boil.","Whisk in the turmeric and black pepper.","Stir in the honey off the heat and drink warm."],
-  tip:"Make it a ritual: same time each evening helps it become a habit."},
- {id:"e3",row:"evening",title:"Honey-Hibiscus Iced Tea",img:IMG.berries,time:"10 min + chill",lvl:"Easy",
-  ing:["2 tbsp dried hibiscus flowers","2 cups hot water","1 tsp honey","Ice and a lemon slice"],
-  steps:["Steep the hibiscus in hot water for 10 minutes.","Strain, stir in the honey and let it cool.","Serve over ice with a lemon slice."],
-  tip:"Hibiscus is a popular herbal tea. If you take any medication, ask your doctor before drinking it regularly."},
- /* MEALS */
- {id:"f1",row:"meals",title:"Honey-Lemon Garlic Dressing",img:IMG.salad,time:"5 min",lvl:"Easy",
-  ing:["3 tbsp extra virgin olive oil","Juice of 1 lemon","1 small garlic clove, minced","1 tsp honey","Pinch of pepper"],
-  steps:["Whisk everything in a small bowl or shake in a jar.","Pour over fresh greens, tomato and cucumber.","Keep leftovers in the fridge up to 3 days."],
-  tip:"A flavorful dressing means you can skip the extra salt."},
- {id:"f2",row:"meals",title:"Avocado Power Bowl with Honey Drizzle",img:IMG.avocado,time:"15 min",lvl:"Easy",
-  ing:["½ avocado, sliced","1 cup mixed greens","½ cup cooked quinoa or brown rice","1 boiled egg","1 tsp honey + 1 tsp lemon juice"],
-  steps:["Place greens and quinoa in a bowl.","Add the avocado and sliced egg.","Mix honey and lemon and drizzle on top."],
-  tip:"Healthy fats from avocado and olive oil are part of a heart-friendly eating style."},
- {id:"f3",row:"meals",title:"Honey-Glazed Baked Salmon",img:IMG.salad2,time:"20 min",lvl:"Medium",
-  ing:["2 salmon fillets","1 tbsp honey","1 tbsp lemon juice","1 garlic clove, minced","1 tsp olive oil","Fresh dill or parsley"],
-  steps:["Heat the oven to 200 °C / 400 °F.","Mix honey, lemon, garlic and oil, and brush over the salmon.","Bake 12–15 minutes until it flakes easily.","Finish with fresh herbs."],
-  tip:"Fatty fish twice a week is a classic heart-healthy habit."},
- {id:"f4",row:"meals",title:"Beet, Berry & Honey Smoothie",img:IMG.smoothie,time:"5 min",lvl:"Easy",
-  ing:["½ cup cooked beet","½ cup berries","1 cup unsweetened plant milk","1 tsp honey","Ice"],
-  steps:["Add everything to a blender.","Blend until smooth.","Drink fresh, as a snack or breakfast."],
-  tip:"Beets give a natural sweetness, so you often need less honey."},
- {id:"f5",row:"meals",title:"Green Apple & Honey Smoothie",img:IMG.green,time:"5 min",lvl:"Easy",
-  ing:["1 green apple","1 handful spinach","½ cucumber","Juice of ½ lemon","1 tsp honey","½ cup water + ice"],
-  steps:["Chop the apple and cucumber.","Blend all ingredients until smooth.","Serve cold."],
-  tip:"Add a little fresh mint for extra freshness."},
- /* MOVE */
- {id:"a1",row:"move",title:"10-Minute Gentle Morning Walk",img:IMG.walk,time:"10 min",lvl:"Easy",
-  ing:["Comfortable shoes","A safe route or treadmill"],
-  steps:["Walk at a relaxed pace you can hold a conversation at.","Keep shoulders loose and breathe through your nose.","Aim to build up to 20–30 minutes over a few weeks."],
-  tip:"Consistency beats intensity. A short walk every day is better than one long walk a week."},
- {id:"a2",row:"move",title:"Easy Full-Body Stretch",img:IMG.yoga,time:"8 min",lvl:"Easy",
-  ing:["A mat or soft surface"],
-  steps:["Neck rolls: 5 slow circles each way.","Shoulder rolls: 10 backward.","Reach up and side-bend: 5 each side.","Gentle forward fold: hold 20 seconds, knees soft.","Finish with 5 deep breaths."],
-  tip:"Move slowly. Stretching should never hurt; stop if you feel pain."},
- {id:"a3",row:"move",title:"Calm Breathing Break",img:IMG.move,time:"5 min",lvl:"Easy",
-  ing:["A quiet spot to sit"],
-  steps:["Sit comfortably and relax your shoulders.","Breathe in through the nose for 4 seconds.","Breathe out slowly through the mouth for 6 seconds.","Repeat for 5 minutes."],
-  tip:"Slow breathing is a simple way to unwind. Try it before meals or at bedtime."},
- {id:"a4",row:"move",title:"After-Dinner Stroll",img:IMG.walk,time:"15 min",lvl:"Easy",
-  ing:["Comfortable shoes"],
-  steps:["Wait 10–15 minutes after eating.","Walk at an easy, steady pace for 10–15 minutes.","Enjoy the fresh air and leave the phone in your pocket."],
-  tip:"A light walk after dinner is a great daily habit for the whole family."}
+ /* MAÑANA */
+ {id:"m1",row:"morning",title:"Agua tibia con miel y limón",img:IMG.lemon,time:"5 min",lvl:"Fácil",
+  ing:["1 taza (240 ml) de agua tibia, sin hervir","1 cucharadita de miel cruda","Jugo de ½ limón"],
+  steps:["Calienta el agua hasta que esté agradable para beber (unos 40 °C).","Agrega la miel y revuelve hasta que se disuelva por completo.","Añade el jugo de limón, mezcla y bebe a sorbos lentos.","Lo ideal es tomarla en ayunas, antes del desayuno."],
+  tip:"Nunca pongas miel en agua hirviendo. El calor por encima de unos 40 °C reduce sus propiedades naturales."},
+ {id:"m2",row:"morning",title:"Té matutino de miel y canela",img:IMG.tea,time:"7 min",lvl:"Fácil",
+  ing:["1 taza de agua caliente","1 rama de canela (o ½ cucharadita de canela de Ceilán)","1 cucharadita de miel cruda"],
+  steps:["Deja la canela en infusión en el agua caliente durante 5 minutos.","Deja enfriar 2 minutos hasta que esté tibio.","Agrega la miel, revuelve y bebe aún tibio."],
+  tip:"La canela de Ceilán es más suave para el uso diario que la canela común (casia)."},
+ {id:"m3",row:"morning",title:"Bowl de avena, frutos rojos y miel",img:IMG.bowl,time:"10 min",lvl:"Fácil",
+  ing:["½ taza de avena en hojuelas","1 taza de leche o bebida vegetal","1 puñado de frutos rojos frescos","1 cucharadita de miel","1 cucharada de nueces picadas"],
+  steps:["Cocina la avena con la leche durante 4 a 5 minutos, revolviendo.","Sirve en un bowl y agrega los frutos rojos y las nueces.","Termina con un chorrito de miel y disfruta tibio."],
+  tip:"La avena y los frutos rojos aportan fibra y antioxidantes: una gran base para un desayuno amigo del corazón."},
+ {id:"m4",row:"morning",title:"Shot despertador de miel y jengibre",img:IMG.dipper,time:"5 min",lvl:"Fácil",
+  ing:["1 trozo pequeño de jengibre fresco (2 cm)","1 cucharadita de miel","Jugo de ½ limón","¼ de taza de agua tibia"],
+  steps:["Ralla el jengibre bien fino.","Mézclalo con la miel, el jugo de limón y el agua tibia.","Cuela si lo prefieres y bébelo en pocos sorbos."],
+  tip:"Empieza con un trozo pequeño de jengibre y ajusta a tu gusto."},
+ /* NOCHE */
+ {id:"e1",row:"evening",title:"Manzanilla con miel para relajarte",img:IMG.tea,time:"8 min",lvl:"Fácil",
+  ing:["1 bolsita de manzanilla o 1 cucharada de flores secas","1 taza de agua caliente","1 cucharadita de miel"],
+  steps:["Deja la manzanilla en infusión 5 minutos, tapada.","Deja enfriar un poco y agrega la miel.","Bebe despacio de 30 a 60 minutos antes de dormir."],
+  tip:"Acompáñala con luces tenues y sin pantallas para una noche más tranquila."},
+ {id:"e2",row:"evening",title:"Leche dorada con miel",img:IMG.jar,time:"8 min",lvl:"Fácil",
+  ing:["1 taza de leche o bebida vegetal tibia","¼ de cucharadita de cúrcuma","Una pizca de pimienta negra","1 cucharadita de miel"],
+  steps:["Calienta la leche suavemente, sin hervir.","Bate con la cúrcuma y la pimienta negra.","Agrega la miel fuera del fuego y bebe tibia."],
+  tip:"Hazla un ritual: tomarla a la misma hora cada noche ayuda a crear el hábito."},
+ {id:"e3",row:"evening",title:"Té helado de hibisco y miel",img:IMG.berries,time:"10 min + enfriar",lvl:"Fácil",
+  ing:["2 cucharadas de flor de jamaica (hibisco) seca","2 tazas de agua caliente","1 cucharadita de miel","Hielo y una rodaja de limón"],
+  steps:["Deja la flor de jamaica en infusión 10 minutos.","Cuela, agrega la miel y deja enfriar.","Sirve con hielo y una rodaja de limón."],
+  tip:"La flor de jamaica es una infusión muy popular. Si tomas algún medicamento, consulta a tu médico antes de beberla con frecuencia."},
+ /* COMIDAS */
+ {id:"f1",row:"meals",title:"Aderezo de miel, limón y ajo",img:IMG.salad,time:"5 min",lvl:"Fácil",
+  ing:["3 cucharadas de aceite de oliva extra virgen","Jugo de 1 limón","1 diente de ajo pequeño, picado","1 cucharadita de miel","Una pizca de pimienta"],
+  steps:["Bate todo en un bowl pequeño o agita en un frasco.","Vierte sobre hojas verdes, tomate y pepino.","Guarda lo que sobre en la nevera hasta 3 días."],
+  tip:"Un aderezo con mucho sabor te permite usar menos sal."},
+ {id:"f2",row:"meals",title:"Bowl de aguacate con hilo de miel",img:IMG.avocado,time:"15 min",lvl:"Fácil",
+  ing:["½ aguacate en rodajas","1 taza de hojas verdes","½ taza de quinoa o arroz integral cocido","1 huevo cocido","1 cucharadita de miel + 1 cucharadita de jugo de limón"],
+  steps:["Coloca las hojas verdes y la quinoa en un bowl.","Agrega el aguacate y el huevo en rodajas.","Mezcla la miel con el limón y vierte por encima."],
+  tip:"Las grasas saludables del aguacate y del aceite de oliva forman parte de una alimentación amiga del corazón."},
+ {id:"f3",row:"meals",title:"Salmón al horno glaseado con miel",img:IMG.salad2,time:"20 min",lvl:"Media",
+  ing:["2 filetes de salmón","1 cucharada de miel","1 cucharada de jugo de limón","1 diente de ajo picado","1 cucharadita de aceite de oliva","Eneldo o perejil fresco"],
+  steps:["Precalienta el horno a 200 °C.","Mezcla la miel, el limón, el ajo y el aceite, y pinta el salmón.","Hornea de 12 a 15 minutos, hasta que se desmenuce fácilmente.","Termina con hierbas frescas."],
+  tip:"Comer pescado azul dos veces por semana es un clásico hábito amigo del corazón."},
+ {id:"f4",row:"meals",title:"Batido de remolacha, frutos rojos y miel",img:IMG.smoothie,time:"5 min",lvl:"Fácil",
+  ing:["½ taza de remolacha cocida","½ taza de frutos rojos","1 taza de bebida vegetal sin azúcar","1 cucharadita de miel","Hielo"],
+  steps:["Pon todo en la licuadora.","Licúa hasta que quede suave.","Bebe fresco, como merienda o desayuno."],
+  tip:"La remolacha aporta dulzor natural, así que muchas veces necesitarás menos miel."},
+ {id:"f5",row:"meals",title:"Batido de manzana verde y miel",img:IMG.green,time:"5 min",lvl:"Fácil",
+  ing:["1 manzana verde","1 puñado de espinacas","½ pepino","Jugo de ½ limón","1 cucharadita de miel","½ taza de agua + hielo"],
+  steps:["Corta la manzana y el pepino.","Licúa todos los ingredientes hasta que quede suave.","Sirve frío."],
+  tip:"Añade un poco de menta fresca para darle más frescura."},
+ /* MOVIMIENTO */
+ {id:"a1",row:"move",title:"Caminata suave de 10 minutos",img:IMG.walk,time:"10 min",lvl:"Fácil",
+  ing:["Calzado cómodo","Una ruta segura o una caminadora"],
+  steps:["Camina a un ritmo relajado, en el que puedas mantener una conversación.","Mantén los hombros sueltos y respira por la nariz.","Ve aumentando poco a poco hasta 20 o 30 minutos a lo largo de unas semanas."],
+  tip:"La constancia gana a la intensidad. Una caminata corta todos los días es mejor que una larga por semana."},
+ {id:"a2",row:"move",title:"Estiramiento suave de cuerpo completo",img:IMG.yoga,time:"8 min",lvl:"Fácil",
+  ing:["Una colchoneta o superficie blanda"],
+  steps:["Círculos de cuello: 5 lentos hacia cada lado.","Círculos de hombros: 10 hacia atrás.","Estírate hacia arriba e inclínate: 5 veces a cada lado.","Flexión suave hacia adelante: mantén 20 segundos, rodillas flexionadas.","Termina con 5 respiraciones profundas."],
+  tip:"Muévete despacio. Estirar nunca debe doler; si sientes dolor, detente."},
+ {id:"a3",row:"move",title:"Pausa de respiración tranquila",img:IMG.move,time:"5 min",lvl:"Fácil",
+  ing:["Un lugar tranquilo para sentarte"],
+  steps:["Siéntate cómodamente y relaja los hombros.","Inhala por la nariz durante 4 segundos.","Exhala lentamente por la boca durante 6 segundos.","Repite durante 5 minutos."],
+  tip:"Respirar despacio es una forma sencilla de relajarte. Pruébalo antes de las comidas o a la hora de dormir."},
+ {id:"a4",row:"move",title:"Paseo después de cenar",img:IMG.walk,time:"15 min",lvl:"Fácil",
+  ing:["Calzado cómodo"],
+  steps:["Espera de 10 a 15 minutos después de comer.","Camina a un ritmo suave y constante durante 10 a 15 minutos.","Disfruta del aire fresco y deja el teléfono en el bolsillo."],
+  tip:"Un paseo ligero después de cenar es un gran hábito diario para toda la familia."}
 ];
 var ROWS = [
- {key:"morning",title:"Morning Honey Rituals",sub:"Start the day right"},
- {key:"meals",title:"Heart-Friendly Recipes",sub:"Meals & smoothies"},
- {key:"evening",title:"Evening Wind-Down",sub:"Calm drinks"},
- {key:"move",title:"Move Your Day",sub:"Light activity, no gym needed"}
+ {key:"morning",title:"Rituales de miel por la mañana",sub:"Empieza bien el día"},
+ {key:"meals",title:"Recetas amigas del corazón",sub:"Comidas y batidos"},
+ {key:"evening",title:"Relajación nocturna",sub:"Bebidas tranquilizantes"},
+ {key:"move",title:"Mueve tu día",sub:"Actividad ligera, sin gimnasio"}
 ];
 var HABITS = [
- {ic:"💧",t:"Drink water through the day",p:"Keep a bottle nearby and sip regularly. Aim for 6 to 8 glasses unless your doctor advises otherwise."},
- {ic:"🧂",t:"Go easy on salt",p:"Use lemon, garlic, herbs and spices to add flavor. Read labels on packaged foods."},
- {ic:"😴",t:"Protect your sleep",p:"A regular bedtime and a screen-free last hour make a real difference."},
- {ic:"🍯",t:"Honey in moderation",p:"Honey is still a sugar. Stay with about 1 teaspoon per recipe. If you have diabetes, ask your doctor first."},
- {ic:"🥗",t:"Fill half your plate with plants",p:"Vegetables, fruits, beans and whole grains are the base of a heart-friendly plate."}
+ {ic:"💧",t:"Bebe agua durante el día",p:"Ten una botella cerca y bebe con regularidad. Apunta a 6 u 8 vasos, salvo que tu médico te indique otra cosa."},
+ {ic:"🧂",t:"Modera la sal",p:"Usa limón, ajo, hierbas y especias para dar sabor. Lee las etiquetas de los alimentos envasados."},
+ {ic:"😴",t:"Cuida tu sueño",p:"Una hora fija para acostarte y la última hora sin pantallas marcan una diferencia real."},
+ {ic:"🍯",t:"Miel con moderación",p:"La miel sigue siendo un azúcar. Quédate en aproximadamente 1 cucharadita por receta. Si tienes diabetes, consulta primero a tu médico."},
+ {ic:"🥗",t:"Llena la mitad del plato de vegetales",p:"Verduras, frutas, legumbres y cereales integrales son la base de un plato amigo del corazón."}
 ];
 var START = ["m1","a1","f1","e1","a2","f4","e2"];
 
@@ -309,29 +309,18 @@ function cardHTML(it){
 function render(){
   var html = "";
   var fav = ITEMS.filter(function(i){return favSet[i.id];});
-  if(fav.length) html += '<div class="rowwrap"><h3>My List <small>Your favorites</small></h3><div class="scroller">'+fav.map(cardHTML).join("")+'</div></div>';
+  if(fav.length) html += '<div class="rowwrap"><h3>Mi lista <small>Tus favoritos</small></h3><div class="scroller">'+fav.map(cardHTML).join("")+'</div></div>';
   ROWS.forEach(function(r){
     var list = ITEMS.filter(function(i){return i.row===r.key;});
     html += '<div class="rowwrap"><h3>'+r.title+'<small>'+r.sub+'</small></h3><div class="scroller">'+list.map(cardHTML).join("")+'</div></div>';
   });
-  html += '<div class="rowwrap"><h3>Daily Habits<small>Small things, big difference</small></h3><div class="scroller">'+
+  html += '<div class="rowwrap"><h3>Hábitos diarios<small>Pequeños gestos, gran diferencia</small></h3><div class="scroller">'+
     HABITS.map(function(h){return '<div class="card tip"><div class="ic">'+h.ic+'</div><b>'+h.t+'</b><p>'+h.p+'</p></div>';}).join("")+'</div></div>';
-  html += '<div class="offer"><div class="pic" style="background-image:url(\''+OFFER_IMG+'\')"></div><div class="tx">'+
-    '<span class="lbl">Optional · Partner offer</span><h3>VitalFlush Drops</h3>'+
-    '<p>Want to get even more from your protocol? VitalFlush is a 100% natural formula in easy-to-take liquid drops, made to give your body extra daily support. Delivered to the comfort of your home.</p>'+
-    '<a class="cta" href="'+OFFER_URL+'" target="_blank" rel="noopener sponsored">See the 3-bottle offer →</a>'+
-    '<small>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</small></div></div>';
-  html += '<div class="lead"><h3>A healthy body, a healthier heart</h3><p>Keeping a healthy weight is an important part of a heart-friendly lifestyle. Along with your recipes and daily movement, some people like to add extra support for managing cravings and portions.</p></div>'+
-    '<div class="offer" style="margin-top:14px"><div class="pic" style="background-image:url(\''+OFFER2_IMG+'\')"></div><div class="tx">'+
-    '<span class="lbl">Optional · Partner offer</span><h3>LeanTide</h3>'+
-    '<p>A 100% natural formula designed to support healthy appetite control, helping you feel more in control of cravings and stay on track with your goals. Delivered to the comfort of your home.</p>'+
-    '<a class="cta" href="'+OFFER2_URL+'" target="_blank" rel="noopener sponsored">See the 3-bottle offer →</a>'+
-    '<small>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</small></div></div>';
-  html += '<div class="rowwrap"><h3>Help & Guarantee<small>We are with you</small></h3><div class="scroller">'+
-    '<div class="card help" data-act="debora"><div class="av" style="background-image:url(\''+AVATAR+'\')"></div><span class="onl"><i></i> Débora · Online now</span><b>Ask Débora, 24/7</b><p>Questions about a recipe, quantities or timing? Débora is ready to help, any time.</p></div>'+
-    '<div class="card help" data-act="refund"><div class="ic">🛡️</div><b>'+GUARANTEE_DAYS+'-day guarantee & refund</b><p>Not for you? Just email us. No need to open a dispute with your bank.</p></div>'+
-    '<div class="card help" data-act="support"><div class="ic">✉️</div><b>Contact support</b><p>Write to '+SUPPORT_EMAIL+' and we reply as soon as we can.</p></div>'+
-    '<div class="card help" data-act="install"><div class="ic">📲</div><b>Add to your home screen</b><p>Open this page on your phone and save it like an app for one-tap access.</p></div>'+
+  html += '<div class="rowwrap"><h3>Ayuda y garantía<small>Estamos contigo</small></h3><div class="scroller">'+
+    '<div class="card help" data-act="debora"><div class="av" style="background-image:url(\''+AVATAR+'\')"></div><span class="onl"><i></i> Débora · En línea ahora</span><b>Pregunta a Débora, 24/7</b><p>¿Dudas sobre una receta, cantidades u horarios? Débora está lista para ayudarte a cualquier hora.</p></div>'+
+    '<div class="card help" data-act="refund"><div class="ic">🛡️</div><b>'+GUARANTEE_DAYS+'  días de garantía y reembolso</b><p>¿No es para ti? Solo escríbenos por correo. No hace falta abrir una disputa con tu banco.</p></div>'+
+    '<div class="card help" data-act="support"><div class="ic">✉️</div><b>Contactar con soporte</b><p>Escribe a '+SUPPORT_EMAIL+' y te respondemos lo antes posible.</p></div>'+
+    '<div class="card help" data-act="install"><div class="ic">📲</div><b>Agregar a tu pantalla de inicio</b><p>Abre esta página en tu teléfono y guárdala como una app para acceder con un toque.</p></div>'+
     '</div></div>';
   $("rows").innerHTML = html;
   var d = Object.keys(doneSet).filter(function(k){return doneSet[k]&&byId(k);}).length;
@@ -346,15 +335,15 @@ function openItem(id){
   $("sheet").innerHTML =
    '<div class="img" style="background-image:url(\''+U(it.img,1000)+'\')"><button class="xbtn" id="x">✕</button></div>'+
    '<div class="sb"><h2>'+it.title+'</h2><div class="meta"><span class="chip">⏱ '+it.time+'</span><span class="chip">'+it.lvl+'</span></div>'+
-   '<h4>'+(it.row==="move"?"What you need":"Ingredients")+'</h4><ul>'+it.ing.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>'+
-   '<h4>'+(it.row==="move"?"How to do it":"Preparation")+'</h4><ol>'+it.steps.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ol>'+
+   '<h4>'+(it.row==="move"?"Qué necesitas":"Ingredientes")+'</h4><ul>'+it.ing.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>'+
+   '<h4>'+(it.row==="move"?"Cómo hacerlo":"Preparación")+'</h4><ol>'+it.steps.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ol>'+
    '<div class="note">💡 '+it.tip+'</div>'+
-   '<div class="act"><button class="a1" id="dn">'+(doneSet[id]?"✓ Completed":"Mark as done")+'</button><button class="a2" id="fv">'+(favSet[id]?"❤️ Saved":"🤍 Save")+'</button></div>'+
-   '<div class="act"><button class="a2" id="qa">💬 Ask Débora about this</button></div></div>';
+   '<div class="act"><button class="a1" id="dn">'+(doneSet[id]?"✓ Completada":"Marcar como hecha")+'</button><button class="a2" id="fv">'+(favSet[id]?"❤️ Guardada":"🤍 Guardar")+'</button></div>'+
+   '<div class="act"><button class="a2" id="qa">💬 Pregunta a Débora sobre esto</button></div></div>';
   $("modal").classList.add("open"); document.body.style.overflow="hidden";
   $("x").onclick = closeModal;
-  $("dn").onclick = function(){doneSet[id]=!doneSet[id];save("acp_done",doneSet);this.textContent=doneSet[id]?"✓ Completed":"Mark as done";render();};
-  $("fv").onclick = function(){favSet[id]=!favSet[id];save("acp_fav",favSet);this.textContent=favSet[id]?"❤️ Saved":"🤍 Save";render();};
+  $("dn").onclick = function(){doneSet[id]=!doneSet[id];save("acp_done",doneSet);this.textContent=doneSet[id]?"✓ Completada":"Marcar como hecha";render();};
+  $("fv").onclick = function(){favSet[id]=!favSet[id];save("acp_fav",favSet);this.textContent=favSet[id]?"❤️ Guardada":"🤍 Guardar";render();};
   $("qa").onclick = function(){window.open(debUrl(),"_blank");};
 }
 function openInfo(title,html){
@@ -366,22 +355,22 @@ $("modal").addEventListener("click",function(e){if(e.target===$("modal"))closeMo
 
 function openAct(a){
   if(a==="debora"){window.open(debUrl(),"_blank");return;}
-  if(a==="support"){window.location.href="mailto:"+SUPPORT_EMAIL+"?subject="+encodeURIComponent("Support request - Arterial Cleanse Protocol");return;}
+  if(a==="support"){window.location.href="mailto:"+SUPPORT_EMAIL+"?subject="+encodeURIComponent("Solicitud de soporte - Arterial Cleanse Protocol");return;}
   if(a==="refund"){
-    var sub=encodeURIComponent("Refund request - Arterial Cleanse Protocol"),
-        body=encodeURIComponent("Hello, I would like to request a refund.\n\nName: "+(user||"")+"\nE-mail used at purchase: \n");
-    openInfo("Guarantee & refund",
-      '<p style="line-height:1.6;color:#dfe3f7">You are covered by our <b>'+GUARANTEE_DAYS+'-day guarantee</b>. If the protocol is not for you, simply send us an e-mail and we will take care of your refund.</p>'+
-      '<div class="note">✅ There is no need to open a dispute or chargeback with your bank. It is faster and easier to write to us directly.</div>'+
-      '<ol style="margin-top:14px"><li>Click the button below to send us an e-mail.</li><li>Include the e-mail you used at purchase.</li><li>We confirm your refund by e-mail.</li></ol>'+
-      '<div class="act"><button class="a1" onclick="window.location.href=\'mailto:'+SUPPORT_EMAIL+'?subject='+sub+'&body='+body+'\'">✉️ Request my refund</button></div>');
+    var sub=encodeURIComponent("Solicitud de reembolso - Arterial Cleanse Protocol"),
+        body=encodeURIComponent("Hola, me gustaría solicitar un reembolso.\n\nNombre: "+(user||"")+"\nCorreo usado en la compra: \n");
+    openInfo("Garantía y reembolso",
+      '<p style="line-height:1.6;color:#dfe3f7">Cuentas con nuestra <b>garantía de '+GUARANTEE_DAYS+' días</b>. Si el protocolo no es para ti, solo envíanos un correo y nos encargamos de tu reembolso.</p>'+
+      '<div class="note">✅ No hace falta abrir una disputa ni un contracargo con tu banco. Es más rápido y sencillo escribirnos directamente.</div>'+
+      '<ol style="margin-top:14px"><li>Toca el botón de abajo para enviarnos un correo.</li><li>Incluye el correo que usaste en la compra.</li><li>Te confirmamos tu reembolso por correo.</li></ol>'+
+      '<div class="act"><button class="a1" onclick="window.location.href=\'mailto:'+SUPPORT_EMAIL+'?subject='+sub+'&body='+body+'\'">✉️ Solicitar mi reembolso</button></div>');
     return;
   }
   if(a==="install"){
-    openInfo("Add to your home screen",
-      '<p style="line-height:1.6;color:#dfe3f7">Keep the app one tap away:</p>'+
-      '<h4>iPhone (Safari)</h4><ol><li>Tap the Share button.</li><li>Choose <b>Add to Home Screen</b>.</li></ol>'+
-      '<h4>Android (Chrome)</h4><ol><li>Tap the ⋮ menu.</li><li>Choose <b>Add to Home screen</b> or <b>Install app</b>.</li></ol>');
+    openInfo("Agregar a tu pantalla de inicio",
+      '<p style="line-height:1.6;color:#dfe3f7">Ten la app a un toque de distancia:</p>'+
+      '<h4>iPhone (Safari)</h4><ol><li>Toca el botón Compartir.</li><li>Elige <b>Añadir a pantalla de inicio</b>.</li></ol>'+
+      '<h4>Android (Chrome)</h4><ol><li>Toca el menú ⋮.</li><li>Elige <b>Añadir a la pantalla de inicio</b> o <b>Instalar app</b>.</li></ol>');
   }
 }
 
@@ -392,8 +381,8 @@ document.addEventListener("click",function(e){
   if(c.dataset.id) openItem(c.dataset.id);
 });
 $("startBtn").onclick = function(){
-  var li = START.map(function(id,i){var it=byId(id);return '<li style="margin-bottom:8px"><b>Day '+(i+1)+':</b> <a href="#" data-go="'+id+'" style="color:#ff8c90">'+it.title+'</a></li>';}).join("");
-  openInfo("Your 7-day kickstart",'<p style="line-height:1.6;color:#dfe3f7">One simple step per day. Tap a day to open it and mark it as done when finished.</p><ol style="padding-left:0;list-style:none;margin-top:12px">'+li+'</ol>');
+  var li = START.map(function(id,i){var it=byId(id);return '<li style="margin-bottom:8px"><b>Día '+(i+1)+':</b> <a href="#" data-go="'+id+'" style="color:#ff8c90">'+it.title+'</a></li>';}).join("");
+  openInfo("Tu plan de inicio de 7 días",'<p style="line-height:1.6;color:#dfe3f7">Un paso sencillo por día. Toca un día para abrirlo y márcalo como hecho al terminar.</p><ol style="padding-left:0;list-style:none;margin-top:12px">'+li+'</ol>');
   $("sheet").querySelectorAll("[data-go]").forEach(function(a){a.onclick=function(ev){ev.preventDefault();openItem(a.dataset.go);};});
 };
 $("askBtn").onclick = function(){window.open(debUrl(),"_blank");};
@@ -409,7 +398,7 @@ $("who").addEventListener("keydown",function(e){if(e.key==="Enter")enter();});
 function start(){
   $("fabav").style.backgroundImage = "url('"+AVATAR+"')";
   $("login").classList.add("hidden"); $("app").classList.remove("hidden");
-  var n = firstName(user); $("hello").textContent = n ? ("Hello, "+n+"!") : "Hello!";
+  var n = firstName(user); $("hello").textContent = n ? ("¡Hola, "+n+"!") : "¡Hola!";
   render();
 }
 /* auto-fill from ?name= or ?email= link */

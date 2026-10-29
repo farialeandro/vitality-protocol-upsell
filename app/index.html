@@ -316,6 +316,17 @@ function render(){
   });
   html += '<div class="rowwrap"><h3>Hábitos diarios<small>Pequeños gestos, gran diferencia</small></h3><div class="scroller">'+
     HABITS.map(function(h){return '<div class="card tip"><div class="ic">'+h.ic+'</div><b>'+h.t+'</b><p>'+h.p+'</p></div>';}).join("")+'</div></div>';
+  html += '<div class="offer"><div class="pic" style="background-image:url(\''+OFFER_IMG+'\')"></div><div class="tx">'+
+    '<span class="lbl">Opcional · Oferta de socio</span><h3>VitalFlush Drops</h3>'+
+    '<p>¿Quieres sacarle aún más partido a tu protocolo? VitalFlush es una fórmula 100% natural en gotas líquidas fáciles de tomar, creada para darle a tu cuerpo un apoyo extra cada día. Entregado en la comodidad de tu hogar.</p>'+
+    '<a class="cta" href="'+OFFER_URL+'" target="_blank" rel="noopener sponsored">Ver la oferta de 3 frascos →</a>'+
+    '<small>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</small></div></div>';
+  html += '<div class="lead"><h3>Un cuerpo sano, un corazón más sano</h3><p>Mantener un peso saludable es una parte importante de un estilo de vida amigo del corazón. Junto con tus recetas y tu movimiento diario, algunas personas prefieren añadir un apoyo extra para controlar los antojos y las porciones.</p></div>'+
+    '<div class="offer" style="margin-top:14px"><div class="pic" style="background-image:url(\''+OFFER2_IMG+'\')"></div><div class="tx">'+
+    '<span class="lbl">Opcional · Oferta de socio</span><h3>LeanTide</h3>'+
+    '<p>Una fórmula 100% natural diseñada para apoyar un control saludable del apetito, ayudándote a sentir más control sobre los antojos y a mantenerte en el camino hacia tus metas. Entregado en la comodidad de tu hogar.</p>'+
+    '<a class="cta" href="'+OFFER2_URL+'" target="_blank" rel="noopener sponsored">Ver la oferta de 3 frascos →</a>'+
+    '<small>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</small></div></div>';
   html += '<div class="rowwrap"><h3>Ayuda y garantía<small>Estamos contigo</small></h3><div class="scroller">'+
     '<div class="card help" data-act="debora"><div class="av" style="background-image:url(\''+AVATAR+'\')"></div><span class="onl"><i></i> Débora · En línea ahora</span><b>Pregunta a Débora, 24/7</b><p>¿Dudas sobre una receta, cantidades u horarios? Débora está lista para ayudarte a cualquier hora.</p></div>'+
     '<div class="card help" data-act="refund"><div class="ic">🛡️</div><b>'+GUARANTEE_DAYS+'  días de garantía y reembolso</b><p>¿No es para ti? Solo escríbenos por correo. No hace falta abrir una disputa con tu banco.</p></div>'+

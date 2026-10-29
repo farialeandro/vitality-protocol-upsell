@@ -111,6 +111,18 @@ main{max-width:1100px;margin:0 auto;padding-bottom:90px}
 .offer small{display:block;margin-top:10px;color:#8b94bb;font-size:11.5px;line-height:1.45}
 @media(max-width:520px){.offer{flex-direction:column;text-align:center}.offer .pic{flex-basis:auto;width:150px}}
 
+
+.av{position:relative;width:54px;height:54px;border-radius:50%;background:#222b52 center/cover;margin-bottom:10px;border:2px solid #2b3566}
+.av::after{content:"";position:absolute;right:0;bottom:0;width:15px;height:15px;border-radius:50%;background:#22c55e;border:2.5px solid #141c3a;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.onl{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#86efac;font-weight:700;margin-bottom:6px}
+.onl i{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block}
+.fab .fav2{position:relative;width:32px;height:32px;border-radius:50%;background:center/cover;border:2px solid #fff}
+.fab .fav2::after{content:"";position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:#22c55e;border:2px solid #b81f2d}
+.lead{margin:30px 16px 0}
+.lead h3{margin:0 0 6px;font-size:20px}
+.lead p{margin:0;color:#c6cce8;font-size:14.5px;line-height:1.6}
+
 /* FLOAT + FOOT */
 .fab{position:fixed;right:16px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:99px;background:linear-gradient(135deg,var(--red),#b81f2d);color:#fff;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 10px 28px rgba(229,72,77,.45)}
 footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center;font-size:12px;color:#7d86ad;line-height:1.6}
@@ -158,7 +170,7 @@ footer{max-width:1100px;margin:30px auto 0;padding:0 16px 40px;text-align:center
     <div id="rows"></div>
   </main>
 
-  <a class="fab" id="fab" href="#" target="_blank" rel="noopener">💬 Ask Débora</a>
+  <a class="fab" id="fab" href="#" target="_blank" rel="noopener"><span class="fav2" id="fabav"></span> Ask Débora</a>
   <footer>
     © Arterial Cleanse Protocol · Educational wellness content. It does not replace medical advice;<br>
     if you take medication or have a health condition, check with your doctor before changing your routine.
@@ -174,6 +186,9 @@ var SUPPORT_EMAIL = "suportevitalityhosting@gmail.com";
 var DEBORA_URL    = "https://upsell.simpleday.shop/welcome-hbp/";
 var GUARANTEE_DAYS = 30;
 var OFFER_URL = "https://astrongroup.mycartpanda.com/checkout/212800347:1?afid=8zjQUdMFBu";
+var AVATAR = "https://images.unsplash.com/photo-1702669010463-3f2088abc0e9?w=160&h=160&fit=crop&crop=faces&q=80";
+var OFFER2_URL = "https://astrongroup.mycartpanda.com/checkout/212055420:1?afid=384NJVTxeP";
+var OFFER2_IMG = "https://thumbor.cartpanda.com/VYvDgE-AdNhGv5vCrIdLL_u2INc=/800x0/https://assets.mycartpanda.com/static/products_images/b2/61/2a/1786659458.png";
 var OFFER_IMG = "https://thumbor.cartpanda.com/b_28odAf00DA9L6CELRvuSlDDH4=/800x0/https://assets.mycartpanda.com/static/products_images/d8/aa/c7/1789145032.png";
 
 
@@ -306,8 +321,14 @@ function render(){
     '<p>Want extra daily support on top of your protocol? VitalFlush is a 100% natural formula in easy liquid drops, delivered to the comfort of your home. Entirely optional.</p>'+
     '<a class="cta" href="'+OFFER_URL+'" target="_blank" rel="noopener sponsored">See the 3-bottle offer →</a>'+
     '<small>Dietary supplement, not a medicine. Individual results vary. Talk to your doctor before taking any supplement, especially if you take medication.</small></div></div>';
+  html += '<div class="lead"><h3>A healthy body, a healthier heart</h3><p>Keeping a healthy weight is an important part of a heart-friendly lifestyle. Along with your recipes and daily movement, some people like to add extra support for managing cravings and portions.</p></div>'+
+    '<div class="offer" style="margin-top:14px"><div class="pic" style="background-image:url(\''+OFFER2_IMG+'\')"></div><div class="tx">'+
+    '<span class="lbl">Optional · Partner offer</span><h3>LeanTide</h3>'+
+    '<p>A 100% natural formula designed to support healthy appetite control, helping you feel more in control of cravings as part of a balanced diet and active routine. Delivered to the comfort of your home. Entirely optional.</p>'+
+    '<a class="cta" href="'+OFFER2_URL+'" target="_blank" rel="noopener sponsored">See the 3-bottle offer →</a>'+
+    '<small>Dietary supplement, not a medicine. Individual results vary. Best combined with healthy eating and physical activity. Talk to your doctor before taking any supplement, especially if you take medication.</small></div></div>';
   html += '<div class="rowwrap"><h3>Help & Guarantee<small>We are with you</small></h3><div class="scroller">'+
-    '<div class="card help" data-act="debora"><div class="ic">💬</div><b>Ask Débora, 24/7</b><p>Questions about a recipe, quantities or timing? Débora answers any time.</p></div>'+
+    '<div class="card help" data-act="debora"><div class="av" style="background-image:url(\''+AVATAR+'\')"></div><span class="onl"><i></i> Débora · Online now</span><b>Ask Débora, 24/7</b><p>Questions about a recipe, quantities or timing? Débora is ready to help, any time.</p></div>'+
     '<div class="card help" data-act="refund"><div class="ic">🛡️</div><b>'+GUARANTEE_DAYS+'-day guarantee & refund</b><p>Not for you? Just email us. No need to open a dispute with your bank.</p></div>'+
     '<div class="card help" data-act="support"><div class="ic">✉️</div><b>Contact support</b><p>Write to '+SUPPORT_EMAIL+' and we reply as soon as we can.</p></div>'+
     '<div class="card help" data-act="install"><div class="ic">📲</div><b>Add to your home screen</b><p>Open this page on your phone and save it like an app for one-tap access.</p></div>'+
@@ -386,6 +407,7 @@ $("enter").onclick = enter;
 $("who").addEventListener("keydown",function(e){if(e.key==="Enter")enter();});
 
 function start(){
+  $("fabav").style.backgroundImage = "url('"+AVATAR+"')";
   $("login").classList.add("hidden"); $("app").classList.remove("hidden");
   var n = firstName(user); $("hello").textContent = n ? ("Hello, "+n+"!") : "Hello!";
   render();

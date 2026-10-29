@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -235,8 +235,8 @@
 
   <section class="welcome-card">
     <div class="welcome-badge" id="welcomeBadge">✦ Miembro Vitality Protocol</div>
-    <h1 id="greetingTitle">¡Hola! Sea muy bienvenida</h1>
-    <p id="welcomeSubtitle">Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.</p>
+    <h1 id="greetingTitle">¡Hola! Te damos la bienvenida</h1>
+    <p id="welcomeSubtitle">Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás solo/a en este camino.</p>
   </section>
 
   <div class="warm-box">
@@ -279,14 +279,14 @@
     es: {
       pageTitle: 'Bienvenida — Vitality Protocol',
       badge: '✦ Miembro Vitality Protocol',
-      greeting: (n) => n ? ('¡Hola, ' + n + '! Sea muy bienvenida') : '¡Hola! Sea muy bienvenida',
-      subtitle: 'Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás sola en este camino.',
+      greeting: (n) => n ? ('¡Hola, ' + n + '! Te damos la bienvenida') : '¡Hola! Te damos la bienvenida',
+      subtitle: 'Tu acceso ya está activo. A partir de ahora tienes acompañamiento personalizado en cada paso — no estás solo/a en este camino.',
       warmBox: '<strong>Cualquier duda, aquí estamos para ti.</strong> Puedes preguntar sobre recetas, horarios, ingredientes o lo que necesites — a cualquier hora, respondemos rápido.',
       status: 'En línea ahora',
       firstBotMsg: (n) => (n ? ('Hola ' + n + ', ') : 'Hola, ') + 'soy Débora, del equipo del Vitality Protocol. Estoy aquí para ayudarte en lo que necesites, a cualquier hora. ¿En qué te puedo ayudar hoy?',
       chips: [
         { q: '¿Qué receta puedo preparar hoy?', label: '¿Qué receta preparo hoy?' },
-        { q: '¿A qué hora es mejor hacer la actividad física?', label: '¿A qué hora hago la actividad?' },
+        { q: '¿Cuál es la mejor hora para tomar la receta con miel?', label: '¿Mejor hora para tomarla?' },
         { q: 'Tengo una duda sobre un ingrediente', label: 'Duda sobre un ingrediente' }
       ],
       placeholder: 'Escribe tu pregunta...',
@@ -342,7 +342,7 @@
     return 'es';
   }
 
-  const LANG = 'en';
+  const LANG = 'es';
   const T = I18N[LANG];
 
   // ---------- Aplica idioma detectado + saudacao personalizada via ?nombre=/?name= na URL ----------
@@ -414,7 +414,7 @@
       const res = await fetch('https://vitality-chat-api.replit.app/api/chat', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ message: userText, bot: 'debora_hbp' })
+        body: JSON.stringify({ message: userText, bot: 'debora_hbp', lang: 'es' })
       });
       const data = await res.json();
       const elapsed = Date.now() - startedAt;
